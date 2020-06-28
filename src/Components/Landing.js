@@ -14,10 +14,10 @@ function Landing() {
   }
 
   return (
-    <div>
+    <div className='master-container'>
       <div className="container">
         <h1 className="text" style={{top:`${styles.topText}%`,fontSize:`${styles.fontSize}px`}} onClick={()=>setStyles({top:100,fontSize:50,topText:-10})}>Academia</h1><br />
-        <button className='btn' onClick={handleClick}>Login</button>
+        <button className='btn hide' onClick={handleClick}>Login</button>
       </div>
       <div className="form-container" style={{top:`${styles.top}%`}}>
         <form className="form">

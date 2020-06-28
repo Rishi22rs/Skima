@@ -62,3 +62,23 @@ span{
     margin-bottom: 60px;
     outline: none;
 }
+@media only screen and (min-width: 600px) {
+    .master-container{
+        display:flex;
+        flex-direction: row-reverse;
+    }
+    .form-container{
+        position: relative;
+        top:50%;
+        right:0;
+        bottom: 0;
+        width: 50%;
+        margin-top: 300px;
+    }
+    .container{
+        right:50%;
+    }
+    .hide{
+        display: none;
+    }
+  }
