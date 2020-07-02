@@ -1,6 +1,7 @@
 *{
     margin:0;
     padding: 0;
+    box-sizing: border-box;
 }
 .text{
     position: relative;
@@ -64,7 +65,7 @@ span{
 }
 .main-container{
     margin:10px;
-    padding: 10px;
+    padding: 0px;
 }
 .main-name-container{
     display: flex;
@@ -79,7 +80,7 @@ span{
     min-width: 100px;
     height: 170px;
     perspective: 1000px;
-    margin-top: 30px;
+    margin-top: 18px;
   }
 
   .main-heading{
@@ -96,9 +97,9 @@ span{
     transition: transform 0.6s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-  
-  .flip-card-front, .flip-card-back {
+}
+
+.flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -119,9 +120,8 @@ span{
       display: flex;
       position: relative;
       margin:auto;
-      top:85px;
       width: 260px;
-      padding: 10px 0px 10px 10px;
+      padding: 2px 0px 4px 0px;
   }
 .per{
     position: relative;
@@ -129,12 +129,32 @@ span{
 }
 .hours{
     display: flex;
-    position: absolute;
-    float: left;
-    padding: 20px;
+    margin: 16px 0 8px 0;
 }
 .in-card-hours-detail{
+    display: inline-block;
+    margin-right: 18px;
+}
+.in-card-hours-detail:last-of-type {
+    margin-right: 0;
+}
+
+.btn-container{
+    display: flex;
+    padding: 20px;
+}
+.day-order-container{
+    display: flex;
+    position: fixed;
+    transition: 0.5s;
+    justify-content: space-around;
+    height: 80%;
+}
+.day-order{
+    position: relative;
+    width: 300px;
     margin-right: 20px;
+    overflow: auto;
 }
 @media only screen and (min-width: 600px) {
     .master-container{
@@ -156,3 +176,11 @@ span{
         display: none;
     }
   }
+
+  .center{
+      display: inline-block;
+  }
+  .center-container{
+    text-align: center;
+  }
+

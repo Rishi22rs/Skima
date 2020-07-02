@@ -10,7 +10,7 @@ const Grades=({match})=>{
 		const getResultData = async()=>{
 			setResult(await getGrades(match.params.id))
 		}
-		if(localStorage.getItem('result')==='K'){
+		if(localStorage.getItem('result')!=='K'){
 			getResultData()
 			console.log('i am calling')
 		}

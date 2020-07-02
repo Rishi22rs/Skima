@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {getContent} from '../Api/Api'
+import {getContent,getKeys} from '../Api/Api'
 import { Link } from 'react-router-dom'
 import {cardColorTheme} from './ColorTheme'
 import { Progress } from 'react-sweet-progress'
@@ -15,7 +15,13 @@ const Main = ({match}) => {
       setContent(await getContent(match.params.id))
     }  
     getContentData()
+    if(!localStorage.getItem('key')){
+      getKeys(match.params.id)
+    }
   },[])
+
+  // if(timetable.length)
+  //   localStorage.setItem('batch',timetable[0].Student_Details[2]['Batch:'])
 
   const handleFlips=()=>{
     if(styles.transform===0)setStyles({...styles,transform:180})
@@ -36,11 +42,18 @@ const Main = ({match}) => {
       <div key={key} className="flip-card" onClick={handleFlips}>
         <div className="flip-card-inner" style={{transform:`rotateX(${styles.transform}deg)`}}>
           <div className="flip-card-front" style={parseInt(x['%'])<50?{backgroundImage: `linear-gradient(${cardColorTheme.danger})`}:parseInt(x['%'])<75?{backgroundImage: `linear-gradient(${cardColorTheme.warning})`}:parseInt(x['%'])<100?{backgroundImage: `linear-gradient(${cardColorTheme.safe})`}:{backgroundImage: `linear-gradient(${cardColorTheme.safest})`}}>
-            <h2 className='main-heading'>{x['Course Title']}</h2>
-            <div className='hours'>
-              <div className='in-card-hours-detail'><p>Hours Absent </p><p>{x['Hours Absent']}</p></div>
-              <div className='in-card-hours-detail'><p>Hours Conducted </p><p>{x['Hours Conducted']}</p></div>
-              <div className='in-card-hours-detail'><p>Total Hours </p><p>{parseInt(x['Hours Conducted'])+parseInt(x['Hours Absent'])}</p></div>
+          <h3 className='main-heading'>{x['Course Title']}</h3>
+            <h5 className='main-heading'>{x['Course Code']}</h5>
+              <div className="center-container">
+                <div className="center">
+                  <div className='hours'>
+                  <div className='in-card-hours-detail'><p>Conducted</p><p>{parseInt(x['Hours Conducted'])}</p></div>
+                  <div className='in-card-hours-detail'><p>Present </p><p>{parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])}</p></div>
+                  <div className='in-card-hours-detail'><p>Absent</p><p>{x['Hours Absent']}</p></div>
+                  <div className='in-card-hours-detail'><p>Bunk</p><p>{parseInt(x['Hours Conducted'])*0.75 - (parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent']))}</p></div>
+                  <div className="in-card-hours-detail"><p>{x["Room No"]}</p></div>  
+                </div>
+              </div>
             </div>
             <div className='progress-bar'>
             <Progress
@@ -68,6 +81,8 @@ const Main = ({match}) => {
           </div>
         </div>
       </div>)}
+      <Link to={`/HeyWasup/grades/${localStorage.getItem('cookie')}`} >Grades</Link>
+      <Link to={`/HeyWasup/timetable/${localStorage.getItem('cookie')}`} >Timetable</Link>
     </div>
   );
 }
