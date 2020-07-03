@@ -48,7 +48,7 @@ const Main = ({match}) => {
                   <div className='in-card-hours-detail'><p>Conducted</p><p>{parseInt(x['Hours Conducted'])}</p></div>
                   <div className='in-card-hours-detail'><p>Present </p><p>{parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])}</p></div>
                   <div className='in-card-hours-detail'><p>Absent</p><p>{x['Hours Absent']}</p></div>
-                  <div className='in-card-hours-detail'><p>Bunk</p><p>{parseInt(x['Hours Conducted'])*0.75 - (parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent']))}</p></div>
+                  <div className='in-card-hours-detail'><p className='bold'>Bunk</p><p>{parseInt(x['Hours Conducted'])*0.75 - (parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent']))}</p></div>
                   <div className="in-card-hours-detail"><p>{x["Room No"]}</p></div>  
                 </div>
               </div>
@@ -71,7 +71,7 @@ const Main = ({match}) => {
                 }
               }}
             />
-            <p style={{color:'white',marginLeft:-30}}>{x['%']}%</p>
+            <p className='percent'>{x['%']}%</p>
             </div>
           </div>
           <div className="flip-card-back">
