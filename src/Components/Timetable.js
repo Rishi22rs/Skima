@@ -16,6 +16,7 @@ const Timetable = ({match}) => {
     },[])
 
     const arrageTimetable=()=>{
+        console.log(schedule)
         let timetable=[]
         for(let i=1;i<6;i++){
             schedule&&schedule.Schedule[`Day ${i}`].map(s=>{
@@ -40,16 +41,16 @@ const Timetable = ({match}) => {
             <h1>Timetable</h1>
             <div className='btn-container'>
                 <button className='btn' onClick={()=>setShift(0)} style={{marginRight:10,marginLeft:-10}}>1</button>
-                <button className='btn' onClick={()=>setShift(-320)}>2</button>
-                <button className='btn' onClick={()=>setShift(-640)} style={{marginLeft:10,marginRight:10}}>3</button>
-                <button className='btn' onClick={()=>setShift(-960)} style={{marginRight:10}}>4</button>
-                <button className='btn' onClick={()=>setShift(-1280)} style={{marginRight:10}}>5</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth+10)}>2</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth*2+20)} style={{marginLeft:10,marginRight:10}}>3</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth*3+30)} style={{marginRight:10}}>4</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth*4+40)} style={{marginRight:10}}>5</button>
             </div>
             <div className='timetable'>
                 <div className='day-order-container' style={{transform:`translate(${shift}px,0)`}}>
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[0].map((x,key)=>
-                <div key={key} className="flip-card">
+                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
 						<div className="flip-card-front" style={{background:'red'}}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
@@ -62,7 +63,7 @@ const Timetable = ({match}) => {
                 </div>
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[1].map((x,key)=>
-                <div key={key} className="flip-card">
+                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
 						<div className="flip-card-front" style={{background:'red'}}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
@@ -75,7 +76,7 @@ const Timetable = ({match}) => {
                 </div>
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[2].map((x,key)=>
-                <div key={key} className="flip-card">
+                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
 						<div className="flip-card-front" style={{background:'red'}}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
@@ -88,7 +89,7 @@ const Timetable = ({match}) => {
                 </div>
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[3].map((x,key)=>
-                <div key={key} className="flip-card">
+                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
 						<div className="flip-card-front" style={{background:'red'}}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
@@ -101,7 +102,7 @@ const Timetable = ({match}) => {
                 </div>
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[4].map((x,key)=>
-                <div key={key} className="flip-card">
+                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
 						<div className="flip-card-front" style={{background:'red'}}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
