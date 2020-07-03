@@ -163,6 +163,12 @@ span{
     min-width: 300px;
     overflow: auto;
 }
+.img{
+    display:'flex';
+    justify-content:'center';
+    align-content:'center';
+    margin-left: auto;
+}
 @media only screen and (min-width: 600px) {
     .master-container{
         display:flex;

@@ -15,9 +15,7 @@ const Main = ({match}) => {
       setContent(await getContent(match.params.id))
     }  
     getContentData()
-    if(!localStorage.getItem('key')){
-      getKeys(match.params.id)
-    }
+    getKeys(match.params.id)
   },[])
 
   // if(timetable.length)

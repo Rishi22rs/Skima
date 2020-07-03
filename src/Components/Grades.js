@@ -30,11 +30,15 @@ const Grades=({match})=>{
 					<div className="flip-card-inner">
 						<div className="flip-card-front" style={x['Grade']==='O'?{backgroundImage: `linear-gradient(${cardColorTheme.safest})`}:x['Grade']==='A+'||x['Grade']==='A'?{backgroundImage: `linear-gradient(${cardColorTheme.safe})`}:x['Grade']==='B+'||x['Grade']==='B'?{backgroundImage: `linear-gradient(${cardColorTheme.warning})`}:{backgroundImage: `linear-gradient(${cardColorTheme.danger})`}}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
-							<div className='hours'>
-								<div className='in-card-hours-detail'><p>Semester </p><p>{x.Sem}</p></div>
-								<div className='in-card-hours-detail'><p>Grade </p><p>{x.Grade}</p></div>
-								<div className='in-card-hours-detail'><p>Result </p><p>{x.Result}</p></div>
-								<div className='in-card-hours-detail'><p>Academic year </p><p>{x['Academic Year'].replace('AY','')}</p></div>
+								<div className="center-container">
+                					<div className="center">
+										<div className='hours'>
+											<div className='in-card-hours-detail'><p>Semester </p><p>{x.Sem}</p></div>
+											<div className='in-card-hours-detail'><p>Grade </p><p>{x.Grade}</p></div>
+											<div className='in-card-hours-detail'><p>Result </p><p>{x.Result}</p></div>
+											<div className='in-card-hours-detail'><p>Academic year </p><p>{x['Academic Year'].replace('AY','')}</p></div>
+										</div>
+									</div>		
 							</div>
 						</div>
 					</div>

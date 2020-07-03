@@ -48,6 +48,7 @@ export const getKeys= async (cookie)=>{
             Cookie:cookie
         }
     }).then(res=>{
+        localStorage.setItem('day',res.data.Keys.DayOrder)
         localStorage.setItem('key',res.data.Keys.TimeTableKey)
         getTimetable(localStorage.getItem('cookie'),res.data.Keys.TimeTableKey)
     })
