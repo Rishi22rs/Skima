@@ -10,6 +10,9 @@ const Main = ({match}) => {
   const [content,setContent]=useState()
   const [styles,setStyles]=useState({transform:0})
 
+  //test feature
+  const [theme,setTheme]=useState(localStorage.getItem['theme'])
+
   useEffect(()=>{
     const getContentData = async()=>{
       setContent(await getContent(match.params.id))
@@ -30,16 +33,27 @@ const Main = ({match}) => {
     localStorage.clear()
   }
 
+  const triggerTheme=()=>{
+    if(localStorage.getItem('theme')==0){
+      localStorage.setItem('theme',1)
+      setTheme(1)
+    }else{
+      localStorage.setItem('theme',0)
+      setTheme(0)
+    }
+  }
+
   return (
     <div className="main-container">
       <div className='main-name-container'>
         {content===undefined?<h1>Loading</h1>:<h1>Welcome, {content[0]['Academic Status'][1]['Name']}</h1>}
         <Link className='main-logout' onClick={logout} to='/'>&#x262D;</Link>
       </div>
+      <button className='btn' onClick={triggerTheme}>Trigger theme</button>
       {content&&content[1]['Attendance'].map((x,key)=>
       <div key={key} className="flip-card" onClick={handleFlips}>
         <div className="flip-card-inner" style={{transform:`rotateX(${styles.transform}deg)`}}>
-          <div className="flip-card-front" style={parseInt(x['%'])<50?{backgroundImage: `linear-gradient(${cardColorTheme.danger})`}:parseInt(x['%'])<75?{backgroundImage: `linear-gradient(${cardColorTheme.warning})`}:parseInt(x['%'])<100?{backgroundImage: `linear-gradient(${cardColorTheme.safe})`}:{backgroundImage: `linear-gradient(${cardColorTheme.safest})`}}>
+          <div className="flip-card-front" style={parseInt(x['%'])<50?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].danger})`}:parseInt(x['%'])<75?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].warning})`}:parseInt(x['%'])<100?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safe})`}:{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}}>
           <h3 className='main-heading'>{x['Course Title']}</h3>
             <h5 className='main-heading'>{x['Course Code']}</h5>
               <div className="center-container">
