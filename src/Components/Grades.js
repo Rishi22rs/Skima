@@ -48,7 +48,7 @@ const Grades=({match})=>{
 				{result&&result.Grades.map((x,key)=>
 				<div key={key} className="flip-card">
 					<div className="flip-card-inner">
-						<div className="flip-card-front" style={x['Grade']==='O'?{backgroundImage: `linear-gradient(${cardColorTheme.safest})`}:x['Grade']==='A+'||x['Grade']==='A'?{backgroundImage: `linear-gradient(${cardColorTheme.safe})`}:x['Grade']==='B+'||x['Grade']==='B'?{backgroundImage: `linear-gradient(${cardColorTheme.warning})`}:{backgroundImage: `linear-gradient(${cardColorTheme.danger})`}}>
+						<div className="flip-card-front" style={x['Grade']==='O'?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}:x['Grade']==='A+'||x['Grade']==='A'?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safe})`}:x['Grade']==='B+'||x['Grade']==='B'?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].warning})`}:{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].danger})`}}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
 							<div className="center-container">
 								<div className="center">
