@@ -4,6 +4,7 @@ import Main from '../Components/Main'
 import Landing from '../Components/Landing'
 import Grades from '../Components/Grades'
 import Timetable from '../Components/Timetable'
+import Store from '../Components/Store'
 
 const Routes=()=>(
     <Router>
@@ -18,6 +19,9 @@ const Routes=()=>(
         </Switch>
         <Switch>
             <Route path='/HeyWasup/timetable/:id' exact component={Timetable}/>
+        </Switch>
+        <Switch>
+            <Route path='/HeyWasup/store/:id' exact component={Store}/>
         </Switch>
     </Router>
 )

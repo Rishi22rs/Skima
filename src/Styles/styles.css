@@ -214,3 +214,29 @@ span{
     }
   }
 
+/* Store */
+.store-head{
+    margin: 18px 0 18px 0;
+}
+.theme-preview-card-c {
+    width: 33.33%;
+    height: 170px;
+    padding: 4px;
+    float: left;
+}
+.theme-preview-card{
+    height: 100%;
+    border: 1px solid #212121;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.palette-preview{
+    height: 30px;
+    padding-left: 4px;
+    text-align: left;
+}
+.palette-head{
+    margin-top: 6px;
+}

@@ -95,6 +95,7 @@ const Main = ({match}) => {
       </div>)}
       <Link to={`/HeyWasup/grades/${localStorage.getItem('cookie')}`} >Grades</Link>
       <Link to={`/HeyWasup/timetable/${localStorage.getItem('cookie')}`} >Timetable</Link>
+      <Link to={`/HeyWasup/store/${localStorage.getItem('cookie')}`} >Store</Link>
     </div>
   );
 }
