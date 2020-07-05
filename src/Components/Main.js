@@ -42,18 +42,18 @@ const Main = ({match}) => {
       setTheme(0)
     }
   }
-
+  const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
-    <div className="main-container">
+    <div className="main-container" style={palette.background}>
       <div className='main-name-container'>
-        {content===undefined?<h1>Loading</h1>:<h1>Welcome, {content[0]['Academic Status'][1]['Name']}</h1>}
+        {content===undefined?<h1 style={palette.fontColor}>Loading</h1>:<h1 style={palette.fontColor}>Welcome, {content[0]['Academic Status'][1]['Name']}</h1>}
         <Link className='main-logout' onClick={logout} to='/'>&#x262D;</Link>
       </div>
       <button className='btn' onClick={triggerTheme}>Trigger theme</button>
       {content&&content[1]['Attendance'].map((x,key)=>
-      <div key={key} className="flip-card" onClick={handleFlips}>
+      <div key={key} className="flip-card" onClick={handleFlips} style={palette.frontCard}>
         <div className="flip-card-inner" style={{transform:`rotateX(${styles.transform}deg)`}}>
-          <div className="flip-card-front" style={parseInt(x['%'])<50?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].danger})`}:parseInt(x['%'])<75?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].warning})`}:parseInt(x['%'])<100?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safe})`}:{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}}>
+          <div className="flip-card-front" style={parseInt(x['%'])<50?palette.danger:parseInt(x['%'])<75?palette.warning:parseInt(x['%'])<100?palette.safe:palette.safest}>
           <h3 className='main-heading'>{x['Course Title']}</h3>
             <h5 className='main-heading'>{x['Course Code']}</h5>
               <div className="center-container">
