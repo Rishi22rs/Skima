@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react'
 import '../Styles/styles.css'
 import {getCookie} from '../Api/Api'
 import { Redirect } from 'react-router-dom'
-import Main from './Main'
 
 function Landing() {
 
@@ -19,7 +18,6 @@ function Landing() {
   useEffect(()=>{
     localStorage.setItem('theme',0)
     setCookie(localStorage.getItem('cookie'))
-    console.log(cookie)
   })
 
   const getContentData = async(e)=>{

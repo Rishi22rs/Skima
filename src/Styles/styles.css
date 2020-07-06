@@ -64,16 +64,22 @@ span{
     outline: none;
 }
 .main-container{
-    margin:10px;
-    padding: 0px;
+    margin:0;
+    padding: 10px;
+    width: 100%;
+    min-height: 100vh;
+    transition: margin-left .5s;
+    padding: 16px;
 }
 .main-name-container{
     display: flex;
+    justify-content: center;
 }
 .main-logout{
-    position: absolute;
-    left: 90%;
+    position: fixed;
+    right: 20px;
     color:black;
+    font-size: 30px;
 }
 .flip-card {
     background-color: transparent;
@@ -190,7 +196,38 @@ span{
     width: 28px;
     height: 28px;
 }
-
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .sidenav-btn{
+      display: flex;
+      position: fixed;
+      padding: 20px;
+      transition: 0.5s;
+  }
 @media only screen and (min-width: 600px) {
     .master-container{
         display:flex;

@@ -34,6 +34,7 @@ const Grades=({match})=>{
 	
 	result&&result.Grades.map((x) => grades.push(x["Grade"]))
 	const rating = getRating(grades)
+	const palette = cardColorTheme[localStorage.getItem('theme')]
 	let medals = []
 	for (let i = 0; i < Math.floor(rating); i++){
 		medals.push(<img key={i} className="medal" src="/assests/images/medal.svg" />)
@@ -41,14 +42,16 @@ const Grades=({match})=>{
 		medals.push(<img key={i} className="medal" style={{opacity: 0.5}} src="/assests/images/medal.svg"/>)
 	}
 	return(
-		<div className="main-container">
-			<h1 className="inline-block">Grades-<span className="rating">{rating}</span></h1>
-			<h1 className="inline-block right">{medals}</h1>
+		<div className="main-container" style={palette.background}>
+			<div className='main-name-container'>
+				<h1 className="inline-block" style={palette.fontColor}>Grades-<span className="rating">{rating}</span></h1>
+				<h1 className="inline-block right">{medals}</h1>
+            </div>
 			<div>
 				{result&&result.Grades.map((x,key)=>
-				<div key={key} className="flip-card">
+				<div key={key} className="flip-card" style={palette.frontCard}>
 					<div className="flip-card-inner">
-						<div className="flip-card-front" style={x['Grade']==='O'?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}:x['Grade']==='A+'||x['Grade']==='A'?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safe})`}:x['Grade']==='B+'||x['Grade']==='B'?{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].warning})`}:{backgroundImage: `linear-gradient(${cardColorTheme[localStorage.getItem('theme')].danger})`}}>
+						<div className="flip-card-front" style={x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
 							<div className="center-container">
 								<div className="center">

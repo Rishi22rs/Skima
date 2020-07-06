@@ -47,7 +47,9 @@ const Timetable = ({match}) => {
 
     return ( 
         <div className='main-container'>
-            <h1>Timetable</h1>
+            <div className='main-name-container'>
+                <h1>Timetable</h1>
+            </div>
             <div className='btn-container'>
                 <button className='btn' onClick={()=>setShift(0)} style={{marginRight:10,marginLeft:-10}}>1</button>
                 <button className='btn' onClick={()=>setShift(-window.innerWidth+10)}>2</button>
@@ -62,7 +64,7 @@ const Timetable = ({match}) => {
                 {arrangedTimetable&&arrangedTimetable[0].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}}>
+						<div className="flip-card-front" style={cardColorTheme[localStorage.getItem('theme')].safest}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
@@ -82,7 +84,7 @@ const Timetable = ({match}) => {
                 {arrangedTimetable&&arrangedTimetable[1].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}}>
+						<div className="flip-card-front" style={cardColorTheme[localStorage.getItem('theme')].safest}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
@@ -102,7 +104,7 @@ const Timetable = ({match}) => {
                 {arrangedTimetable&&arrangedTimetable[2].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}}>
+						<div className="flip-card-front" style={cardColorTheme[localStorage.getItem('theme')].safest}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
@@ -122,7 +124,7 @@ const Timetable = ({match}) => {
                 {arrangedTimetable&&arrangedTimetable[3].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}}>
+						<div className="flip-card-front" style={cardColorTheme[localStorage.getItem('theme')].safest}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
@@ -142,7 +144,7 @@ const Timetable = ({match}) => {
                 {arrangedTimetable&&arrangedTimetable[4].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
 					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme[localStorage.getItem('theme')].safest})`}}>
+						<div className="flip-card-front" style={cardColorTheme[localStorage.getItem('theme')].safest}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
