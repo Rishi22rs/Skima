@@ -219,16 +219,17 @@ span{
     margin: 18px 0 18px 0;
 }
 .theme-preview-card-c {
-    width: 33.33%;
     height: 170px;
-    padding: 4px;
+    padding: 8px;
     float: left;
 }
 .theme-preview-card{
+    position: relative;
     height: 100%;
     border: 1px solid #212121;
     border-radius: 5px;
     overflow: hidden;
+    opacity: 0.6;
     text-align: center;
 }
 
@@ -237,6 +238,51 @@ span{
     padding-left: 4px;
     text-align: left;
 }
+.palette-overlay{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    line-height: 154px;
+    text-align: center;
+    height: 100%;
+    background-color: rgba(150, 240, 255, 0.2);
+}
+.ol-visible{
+    display: block;
+}
+.ol-hidden {
+    display: none;
+}
 .palette-head{
     margin-top: 6px;
 }
+.icon-done{
+    filter: contrast(170%);
+    width: 35px;
+    height: 35px;
+    z-index: 99;
+    transform: translateY(40%);
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}

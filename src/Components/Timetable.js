@@ -5,6 +5,7 @@ import nowork from '../Graphics/nowork.jpg'
 
 const Timetable = ({match}) => {
 
+    if(localStorage.getItem('theme') === null)localStorage.setItem('theme', 'Default')
     const [schedule,setSchedule]=useState()    
     const [shift,setShift]=useState(0)    
 
@@ -41,13 +42,13 @@ const Timetable = ({match}) => {
     }
     
     arrageTimetable()
-
+    const palette = cardColorTheme[localStorage.getItem('theme')]
     console.log(arrangedTimetable)
     console.log(schedule)
 
     return ( 
-        <div className='main-container'>
-            <h1>Timetable</h1>
+        <div className='main-container' style={palette.background}>
+            <h1 style={palette.fontColor}>Timetable</h1>
             <div className='btn-container'>
                 <button className='btn' onClick={()=>setShift(0)} style={{marginRight:10,marginLeft:-10}}>1</button>
                 <button className='btn' onClick={()=>setShift(-window.innerWidth+10)}>2</button>
@@ -61,8 +62,8 @@ const Timetable = ({match}) => {
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[0].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme.safest})`}}>
+					<div className="flip-card-inner" style={palette.flipCardInner}>
+						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
@@ -81,8 +82,8 @@ const Timetable = ({match}) => {
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[1].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme.safest})`}}>
+					<div className="flip-card-inner" style={palette.flipCardInner}>
+						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
@@ -101,8 +102,8 @@ const Timetable = ({match}) => {
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[2].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme.safest})`}}>
+					<div className="flip-card-inner" style={palette.flipCardInner}>
+						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
@@ -121,8 +122,8 @@ const Timetable = ({match}) => {
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[3].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme.safest})`}}>
+					<div className="flip-card-inner" style={palette.flipCardInner}>
+						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
@@ -141,8 +142,8 @@ const Timetable = ({match}) => {
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[4].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner">
-						<div className="flip-card-front" style={{backgroundImage:`linear-gradient(${cardColorTheme.safest})`}}>
+					<div className="flip-card-inner" style={palette.flipCardInner}>
+						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
                                 <div className="center-container">
                                     <div className="center">
