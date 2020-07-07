@@ -5,6 +5,7 @@ import {cardColorTheme} from './ColorTheme'
 import { Progress } from 'react-sweet-progress'
 import "react-sweet-progress/lib/style.css"
 import Sidenav from './Sidenav'
+import Nav from './Nav'
 
 const Main = ({match}) => {
 
@@ -29,10 +30,12 @@ const Main = ({match}) => {
 
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
-    <div className="main-container" style={palette.background,{}}>
-      <div className='main-name-container'>
-        <h1>Attendance</h1>
-      </div>
+    // <div className="main-container" style={palette.background,{}}>
+    //   <div className='main-name-container'>
+    //     <h1>Attendance</h1>
+    //   </div>
+    <div className='main-container'>
+      <Nav />
       {content&&content[1]['Attendance'].map((x,key)=>
       <div key={key} className="flip-card" onClick={handleFlips} style={palette.frontCard}>
         <div className="flip-card-inner" style={{transform:`rotateX(${styles.transform}deg)`}}>

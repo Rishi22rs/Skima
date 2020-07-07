@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getSchedule } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
 import nowork from '../Graphics/nowork.jpg'
+import Nav from './Nav'
 
 const Timetable = ({match}) => {
 
@@ -47,9 +48,7 @@ const Timetable = ({match}) => {
 
     return ( 
         <div className='main-container'>
-            <div className='main-name-container'>
-                <h1>Timetable</h1>
-            </div>
+            <Nav title='Timetable'/>
             <div className='btn-container'>
                 <button className='btn' onClick={()=>setShift(0)} style={{marginRight:10,marginLeft:-10}}>1</button>
                 <button className='btn' onClick={()=>setShift(-window.innerWidth+10)}>2</button>
