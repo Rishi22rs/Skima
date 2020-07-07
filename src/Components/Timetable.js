@@ -49,6 +49,7 @@ const Timetable = ({match}) => {
     return ( 
         <div className='main-container'>
             <Nav title='Timetable'/>
+            <div className='cards'>
             <div className='btn-container'>
                 <button className='btn' onClick={()=>setShift(0)} style={{marginRight:10,marginLeft:-10}}>1</button>
                 <button className='btn' onClick={()=>setShift(-window.innerWidth+10)}>2</button>
@@ -59,6 +60,7 @@ const Timetable = ({match}) => {
             </div>
             <div className='timetable'>
                 <div className='day-order-container' style={{transform:`translate(${shift}px,0)`}}>
+                    
                 <div className='day-order'>
                 {arrangedTimetable&&arrangedTimetable[0].map((x,key)=>
                 <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
@@ -163,6 +165,7 @@ const Timetable = ({match}) => {
                     <img src={nowork} width={window.innerWidth-20} height={400} alt='no work'/>
                 </div>
                 </div>
+            </div>
             </div>
         </div>    
     )

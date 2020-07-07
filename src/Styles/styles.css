@@ -227,6 +227,19 @@ span{
       padding: 20px;
       transition: 0.5s;
   }
+  .nav-top{
+      position: fixed;
+      z-index: 99;
+      background-color: white;
+      width: 100%;
+      top:0;
+      padding: 20px;
+      left:0;
+      right: 0;
+  }
+  .cards{
+      margin-top: 90px;
+  }
 @media only screen and (min-width: 600px) {
     .master-container{
         display:flex;

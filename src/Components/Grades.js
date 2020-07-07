@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getGrades } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
+import Nav from './Nav'
 
 const Grades=({match})=>{
 
@@ -44,7 +45,7 @@ const Grades=({match})=>{
 	return(
 		<div className="main-container" style={palette.background}>
 			<div className='main-name-container'>
-				<h1 className="inline-block" style={palette.fontColor}>Grades-<span className="rating">{rating}</span></h1>
+				<Nav title={`Grades-${rating}`} />
 				<h1 className="inline-block right">{medals}</h1>
             </div>
 			<div>

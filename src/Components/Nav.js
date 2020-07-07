@@ -23,7 +23,7 @@ const Nav=({
       }
 
     return(
-    <div style={{position:"fixed"}}>
+    <div className='nav-top'>
     <div id="mySidenav" className="sidenav" style={{width:styles.width,backgroundImage:"linear-gradient(to bottom right,#EC79C4,#A183F1)"}}>
         <Sidenav closeNav={closeNav}/>
     </div>

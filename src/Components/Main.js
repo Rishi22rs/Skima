@@ -36,6 +36,7 @@ const Main = ({match}) => {
     //   </div>
     <div className='main-container'>
       <Nav />
+      <div className='cards'>
       {content&&content[1]['Attendance'].map((x,key)=>
       <div key={key} className="flip-card" onClick={handleFlips} style={palette.frontCard}>
         <div className="flip-card-inner" style={{transform:`rotateX(${styles.transform}deg)`}}>
@@ -79,6 +80,7 @@ const Main = ({match}) => {
           </div>
         </div>
       </div>)}
+      </div>
     </div>
   );
 }
