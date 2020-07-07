@@ -16,7 +16,9 @@ function Landing() {
 	const [cookie,setCookie]=useState()
 
   useEffect(()=>{
-    localStorage.setItem('theme',0)
+    if(localStorage.getItem('theme')===null){
+      localStorage.setItem('theme','Default')
+    }
     setCookie(localStorage.getItem('cookie'))
   })
 

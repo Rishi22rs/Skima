@@ -17,8 +17,8 @@ const Timetable = ({match}) => {
             setSchedule(await getSchedule(match.params.id,localStorage.getItem('batch')))
         }
         getScheduleData()
-        if(localStorage.getItem('day')==='No Day Order')setShift(-window.innerWidth*5+50)
-        else setShift(-window.innerWidth*(parseInt(localStorage.getItem('day'))-1)+(10*(parseInt(localStorage.getItem('day'))-1)))
+        if(localStorage.getItem('day')==='No Day Order')setShift(-window.innerWidth*5+44)
+        else setShift(-window.innerWidth*(parseInt(localStorage.getItem('day'))-1)+(10*(parseInt(localStorage.getItem('day'))-1.5)))
     },[])
 
     const arrageTimetable=()=>{
@@ -48,16 +48,16 @@ const Timetable = ({match}) => {
     console.log(schedule)
 
     return ( 
-        <div className='main-container'>
+        <div className='main-container' style={palette.background}>
             <Nav title='Timetable'/>
             <div className='cards'>
             <div className='btn-container'>
-                <button className='btn' onClick={()=>setShift(0)} style={{marginRight:10,marginLeft:-10}}>1</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth+10)}>2</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth*2+20)} style={{marginLeft:10,marginRight:10}}>3</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth*3+30)} style={{marginRight:10}}>4</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth*4+40)} style={{marginRight:10}}>5</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth*5+50)} style={{marginRight:10}}>Chill</button>
+                <button className='btn' onClick={()=>setShift(-6)} style={{marginRight:10,marginLeft:-10}}>1</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth+4)}>2</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth*2+14)} style={{marginLeft:10,marginRight:10}}>3</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth*3+24)} style={{marginRight:10}}>4</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth*4+34)} style={{marginRight:10}}>5</button>
+                <button className='btn' onClick={()=>setShift(-window.innerWidth*5+44)} style={{marginRight:10}}>Chill</button>
             </div>
             <div className='timetable'>
                 <div className='day-order-container' style={{transform:`translate(${shift}px,0)`}}>

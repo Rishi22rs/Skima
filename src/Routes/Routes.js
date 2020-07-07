@@ -21,7 +21,7 @@ const Routes=()=>(
             <Route path='/HeyWasup/timetable/:id' exact component={Timetable}/>
         </Switch>
         <Switch>
-            <Route path='/HeyWasup/store/:id' exact component={Store}/>
+            <Route path='/HeyWasup/themes/:id' exact component={Store}/>
         </Switch>
     </Router>
 )

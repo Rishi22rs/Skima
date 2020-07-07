@@ -3,6 +3,7 @@ import {cardColorTheme} from './ColorTheme'
 import { Progress } from 'react-sweet-progress'
 import "react-sweet-progress/lib/style.css"
 import PalettePreview from './UI/PalettePreview.js'
+import Nav from './Nav';
 
 const Store = () => {
 
@@ -54,8 +55,9 @@ const Store = () => {
   const palette = cardColorTheme[theme]
   return (
     <div className="main-container" style={palette.background}>
-        <h1 className='center-container' style={palette.fontColor}>Store</h1>
-        <h2 className="store-head" style={palette.fontColor}>Customize with themes</h2>
+        <Nav title='Themes'/>
+        <div className='cards'>
+        <h2 className="store-head" style={palette.heading}>Customize with themes</h2>
         <div className='row'>
             <PalettePreview name='Default' palette={paletteStrip['Default']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Default');setTheme('Default')}}/>
             <PalettePreview name='Dark' palette={paletteStrip['Dark']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Dark');setTheme('Dark')}}/>
@@ -104,6 +106,7 @@ const Store = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

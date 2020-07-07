@@ -3,6 +3,9 @@ export const cardColorTheme = {
     background: {
         backgroundColor: "#FFFFFF"
       },
+      heading:{
+        color: "black"
+      },
       fontColor: {
         color: "#FFFFFF"
       },
@@ -26,6 +29,9 @@ export const cardColorTheme = {
     background: {
         backgroundColor: "#121212"
       },
+      heading:{
+        color: "white"
+      },
       fontColor: {
         color: "#FFFFFF"
       },
@@ -48,6 +54,9 @@ export const cardColorTheme = {
   Light: {
     background: {
       backgroundColor: "#FFFFFF"
+    },
+    heading:{
+      color: "whote"
     },
     fontColor: {
       color: "#212121"

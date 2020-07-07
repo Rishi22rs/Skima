@@ -35,10 +35,6 @@ const Main = ({match}) => {
 
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
-    // <div className="main-container" style={palette.background,{}}>
-    //   <div className='main-name-container'>
-    //     <h1>Attendance</h1>
-    //   </div>
     <div className='main-container' style={palette.background}>
       <Nav />
       <div className='cards'>

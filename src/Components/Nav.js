@@ -25,7 +25,7 @@ const Nav=({
       const palette = cardColorTheme[localStorage.getItem('theme')]
 
     return(
-    <div className='nav-top' style={Object.assign({},palette.background,palette.fontColor)}>
+    <div className='nav-top' style={Object.assign({},palette.background,palette.heading)}>
     <div id="mySidenav" className="sidenav" style={Object.assign({},palette.danger,{width:styles.width})}>
         <Sidenav closeNav={closeNav}/>
     </div>
