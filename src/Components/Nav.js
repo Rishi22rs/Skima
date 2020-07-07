@@ -22,9 +22,11 @@ const Nav=({
         localStorage.clear()
       }
 
+      const palette = cardColorTheme[localStorage.getItem('theme')]
+
     return(
-    <div className='nav-top'>
-    <div id="mySidenav" className="sidenav" style={{width:styles.width,backgroundImage:"linear-gradient(to bottom right,#EC79C4,#A183F1)"}}>
+    <div className='nav-top' style={Object.assign({},palette.background,palette.fontColor)}>
+    <div id="mySidenav" className="sidenav" style={Object.assign({},palette.danger,{width:styles.width})}>
         <Sidenav closeNav={closeNav}/>
     </div>
     <div className='main-name-container'>

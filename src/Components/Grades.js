@@ -5,6 +5,7 @@ import Nav from './Nav'
 
 const Grades=({match})=>{
 
+	if(localStorage.getItem('theme') === null)localStorage.setItem('theme', 'Default')
 	const [result,setResult]=useState()
 	const grades = []
 	
@@ -51,12 +52,12 @@ const Grades=({match})=>{
 			<div>
 				{result&&result.Grades.map((x,key)=>
 				<div key={key} className="flip-card" style={palette.frontCard}>
-					<div className="flip-card-inner">
-						<div className="flip-card-front" style={x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger}>
+					<div className="flip-card-inner" style={palette.flipCardInner}>
+						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger)}>
 							<h2 className='main-heading'>{x['Course Title']}</h2>
 							<div className="center-container">
 								<div className="center">
-									<div className='hours'>
+									<div className='hours' style={palette.fontColor}>
 										<div className='in-card-hours-detail'><p>Semester </p><p>{x.Sem}</p></div>
 										<div className='in-card-hours-detail'><p>Grade </p><p>{x.Grade}</p></div>
 										<div className='in-card-hours-detail'><p>Result </p><p>{x.Result}</p></div>

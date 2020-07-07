@@ -10,7 +10,12 @@ import Nav from './Nav'
 const Main = ({match}) => {
 
   const [content,setContent]=useState()
-  const [styles,setStyles]=useState({transform:0,left:-220})
+  const [styles,setStyles]=useState({transform:0})
+
+  //test feature
+  const [theme, setTheme] = useState(localStorage.getItem('theme'))
+  
+  if(theme === null)localStorage.setItem('theme', 'Default')
 
   useEffect(()=>{
     const getContentData = async()=>{
@@ -34,18 +39,18 @@ const Main = ({match}) => {
     //   <div className='main-name-container'>
     //     <h1>Attendance</h1>
     //   </div>
-    <div className='main-container'>
+    <div className='main-container' style={palette.background}>
       <Nav />
       <div className='cards'>
       {content&&content[1]['Attendance'].map((x,key)=>
-      <div key={key} className="flip-card" onClick={handleFlips} style={palette.frontCard}>
-        <div className="flip-card-inner" style={{transform:`rotateX(${styles.transform}deg)`}}>
-          <div className="flip-card-front" style={parseInt(x['%'])<50?palette.danger:parseInt(x['%'])<75?palette.warning:parseInt(x['%'])<100?palette.safe:palette.safest}>
+      <div key={key} className="flip-card" style={palette.frontCard}>
+        <div className="flip-card-inner" style={palette.flipCardInner}>
+          <div className="flip-card-front" style={Object.assign({}, palette.fontColor, parseInt(x['%'])<50?palette.danger:parseInt(x['%'])<75?palette.warning:parseInt(x['%'])<100?palette.safe:palette.safest)}>
           <h3 className='main-heading'>{x['Course Title']}</h3>
             <h5 className='main-heading'>{x['Course Code']}</h5>
               <div className="center-container">
                 <div className="center">
-                  <div className='hours'>
+                  <div className='hours' style={palette.fontColor}>
                   <div className='in-card-hours-detail'><p>Conducted</p><p>{parseInt(x['Hours Conducted'])}</p></div>
                   <div className='in-card-hours-detail'><p>Present </p><p>{parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])}</p></div>
                   <div className='in-card-hours-detail'><p>Absent</p><p>{x['Hours Absent']}</p></div>
