@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Sidenav from './Sidenav'
 import { Link } from 'react-router-dom'
 import { cardColorTheme } from './ColorTheme'
@@ -8,7 +8,11 @@ const Nav=({
 })=>{
 
     const [styles,setStyles]=useState({marginLeft:0,width:0})
+    const [isHide,setIsHide]=useState(true)
 
+    useEffect(()=>{
+        !navigator.onLine?setIsHide(false):setIsHide(true)
+    },[])
 
     function closeNav() {
         setStyles({...styles,marginLeft:0,width:0})
@@ -22,7 +26,7 @@ const Nav=({
         localStorage.clear()
       }
 
-      const palette = cardColorTheme[localStorage.getItem('theme')]
+    const palette = cardColorTheme[localStorage.getItem('theme')]
 
     return(
     <div className='nav-top' style={Object.assign({},palette.background,palette.heading)}>
@@ -34,6 +38,7 @@ const Nav=({
         <h1>{title}</h1>
         <Link className='main-logout' onClick={logout} to='/'>🚪</Link>
     </div>
+    {!isHide?<h1 className='text' onClick={()=>setIsHide(true)} style={palette.danger}>Not internet bro</h1>:<></>}
     </div>
     )
 }

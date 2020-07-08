@@ -233,12 +233,12 @@ span{
       background-color: white;
       width: 100%;
       top:0;
-      padding: 20px;
+      padding: 10px;
       left:0;
       right: 0;
   }
   .cards{
-      margin-top: 90px;
+      margin-top: 70px;
   }
 @media only screen and (min-width: 600px) {
     .master-container{

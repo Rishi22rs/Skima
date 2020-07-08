@@ -46,7 +46,21 @@ const Store = () => {
       }, {
           backgroundColor: '#313131',
           color: '#FFFFFF'
-      }]
+      }],
+      DarkColorful: [{
+        backgroundColor: '#150C29',
+        color: '#FFFFFF'
+      }, {
+          backgroundColor: 'white',
+          color: 'black'
+      }, {
+          backgroundColor: '#121212',
+          color: '#FFFFFF'
+      }, {
+          backgroundColor: '#313131',
+          color: '#FFFFFF'
+      }],
+      
   }
   
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
@@ -62,6 +76,7 @@ const Store = () => {
             <PalettePreview name='Default' palette={paletteStrip['Default']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Default');setTheme('Default')}}/>
             <PalettePreview name='Dark' palette={paletteStrip['Dark']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Dark');setTheme('Dark')}}/>
             <PalettePreview name='Light' palette={paletteStrip['Light']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Light');setTheme('Light')}}/>
+            <PalettePreview name='DarkColorful' palette={paletteStrip['DarkColorful']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'DarkColorful');setTheme('DarkColorful')}}/>
         </div>
         <h2 className="store-head" style={palette.fontColor}>Preview</h2>
         <div className="flip-card" style={palette.frontCard}>

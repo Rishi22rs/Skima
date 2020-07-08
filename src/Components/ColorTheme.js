@@ -80,5 +80,31 @@ export const cardColorTheme = {
       boxShadow: "none",
       borderBottom: "1px solid #EEEEEE"
     }
+  },
+  DarkColorful:{
+    background: {
+      backgroundColor: "#150C29"
+    },
+    heading:{
+      color: "white"
+    },
+    fontColor: {
+      color: "#FFFFFF"
+    },
+    danger: {
+      backgroundImage: "linear-gradient(to bottom right, #8C0103, #FE141A)"
+    },
+    warning: {
+      backgroundImage: "linear-gradient(to bottom right,#FF5A15,#FFDD17)"
+    },
+    safe: {
+      backgroundImage: "linear-gradient(to bottom right,#7B00C7,#2DCCFB)"
+    },
+    safest: {
+      backgroundImage: "linear-gradient(to bottom right,#EC79C4,#A183F1)"
+    },
+    frontCard: {
+      border: ""
+    }
   }
 }

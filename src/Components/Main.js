@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import {cardColorTheme} from './ColorTheme'
 import { Progress } from 'react-sweet-progress'
 import "react-sweet-progress/lib/style.css"
-import Sidenav from './Sidenav'
 import Nav from './Nav'
 
 const Main = ({match}) => {
@@ -12,7 +11,10 @@ const Main = ({match}) => {
   const [content,setContent]=useState()
   const [styles,setStyles]=useState({transform:0})
 
+
   //test feature
+  const [lux,setLux]=useState()
+
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
   
   if(theme === null)localStorage.setItem('theme', 'Default')
@@ -23,6 +25,11 @@ const Main = ({match}) => {
     }  
     getContentData()
     getKeys(match.params.id)
+    window.addEventListener("devicelight", function (event) {
+      // Read out the lux value
+      var lux = event.value;
+      setLux(lux)
+  });
   },[])
 
   // if(timetable.length)
@@ -36,7 +43,7 @@ const Main = ({match}) => {
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
     <div className='main-container' style={palette.background}>
-      <Nav />
+      <Nav title={lux}/>
       <div className='cards'>
       {content&&content[1]['Attendance'].map((x,key)=>
       <div key={key} className="flip-card" style={palette.frontCard}>
