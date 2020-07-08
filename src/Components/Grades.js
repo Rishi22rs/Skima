@@ -46,10 +46,9 @@ const Grades=({match})=>{
 	return(
 		<div className="main-container" style={palette.background}>
 			<div className='main-name-container'>
-				<Nav title={`Grades-${rating}`} />
-				<h1 className="inline-block right">{medals}</h1>
+				<Nav title={`Grades-${isNaN(rating)?'0.0':rating}`} medals={medals} />
             </div>
-			<div>
+			<div className='cards'>
 				{result&&result.Grades.map((x,key)=>
 				<div key={key} className="flip-card" style={palette.frontCard}>
 					<div className="flip-card-inner" style={palette.flipCardInner}>

@@ -74,9 +74,10 @@ span{
 .main-name-container{
     display: flex;
 }
-.main-logout{
-    position: fixed;
-    right: 20px;
+.main-medals{
+    position: absolute;
+    transform: translateX(-50%);
+    right: 0px;
     color:black;
     font-size: 30px;
 }
@@ -233,12 +234,12 @@ span{
       background-color: white;
       width: 100%;
       top:0;
-      padding: 20px;
+      padding: 8px;
       left:0;
       right: 0;
   }
   .cards{
-      margin-top: 90px;
+      margin-top: 50px;
   }
 @media only screen and (min-width: 600px) {
     .master-container{
