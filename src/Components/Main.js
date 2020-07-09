@@ -11,29 +11,21 @@ const Main = ({match}) => {
   const [content,setContent]=useState()
   const [styles,setStyles]=useState({transform:0})
 
-
-  //test feature
-  const [lux,setLux]=useState()
-
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
   
   if(theme === null)localStorage.setItem('theme', 'Default')
 
   useEffect(()=>{
+    if(!navigator.onLine)setContent(JSON.parse(localStorage.getItem('content')))
     const getContentData = async()=>{
       setContent(await getContent(match.params.id))
     }  
     getContentData()
     getKeys(match.params.id)
-    window.addEventListener("devicelight", function (event) {
-      // Read out the lux value
-      var lux = event.value;
-      setLux(lux)
-  });
   },[])
 
-  // if(timetable.length)
-  //   localStorage.setItem('batch',timetable[0].Student_Details[2]['Batch:'])
+  if(localStorage.getItem('content')===null||localStorage.getItem('content')==='undefined')
+    localStorage.setItem('content',JSON.stringify(content))
 
   const handleFlips=()=>{
     if(styles.transform===0)setStyles({...styles,transform:180})
@@ -43,7 +35,7 @@ const Main = ({match}) => {
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
     <div className='main-container' style={palette.background}>
-      <Nav title={lux}/>
+      <Nav />
       <div className='cards'>
       {content&&content[1]['Attendance'].map((x,key)=>
       <div key={key} className="flip-card" style={palette.frontCard}>
