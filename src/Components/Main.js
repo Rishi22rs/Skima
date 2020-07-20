@@ -7,6 +7,7 @@ import "react-sweet-progress/lib/style.css"
 import Sidenav from './Sidenav'
 import Nav from './Nav'
 
+
 const Main = ({match}) => {
 
   const [content,setContent]=useState()
@@ -35,54 +36,54 @@ const Main = ({match}) => {
 
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
-    <div className='main-container' style={palette.background}>
-      <Nav />
-      <div className='cards'>
-      {content&&content[1]['Attendance'].map((x,key)=>
-      <div key={key} className="flip-card" style={palette.frontCard}>
-        <div className="flip-card-inner" style={palette.flipCardInner}>
-          <div className="flip-card-front" style={Object.assign({}, palette.fontColor, parseInt(x['%'])<50?palette.danger:parseInt(x['%'])<75?palette.warning:parseInt(x['%'])<100?palette.safe:palette.safest)}>
-          <h3 className='main-heading'>{x['Course Title']}</h3>
-            <h5 className='main-heading'>{x['Course Code']}</h5>
-              <div className="center-container">
-                <div className="center">
-                  <div className='hours' style={palette.fontColor}>
-                  <div className='in-card-hours-detail'><p>Conducted</p><p>{parseInt(x['Hours Conducted'])}</p></div>
-                  <div className='in-card-hours-detail'><p>Present </p><p>{parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])}</p></div>
-                  <div className='in-card-hours-detail'><p>Absent</p><p>{x['Hours Absent']}</p></div>
-                  <div className='in-card-hours-detail'><p className='bold'>Bunk</p><p>{parseInt(x['Hours Conducted'])*0.75 - (parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent']))}</p></div>
-                  <div className="in-card-hours-detail"><p>{x["Room No"]}</p></div>  
+    <React.Fragment>
+      <Nav/>
+      <div className='main-container' style={palette.background}>
+        <div className="row" style={{marginBottom: '0'}}>
+          {content && content[1]['Attendance'].map((x, key) =>
+            <div key={key} className="col s12 m6 l3">
+              <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, parseInt(x['%']) < 50 ? palette.danger : parseInt(x['%']) < 75 ? palette.warning : parseInt(x['%']) < 100 ? palette.safe : palette.safest)}>
+                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
+                  <h5 className="center-align truncate">{x['Course Title']}</h5>
+                  <div className='center-align'><span>{x['Course Code']}</span></div>
+                </div>
+                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
+                  <div className='row'>
+                    <div className='col s3 center' style={palette.fontColor}><span>Conducted</span><br/><span>{parseInt(x['Hours Conducted'])}</span></div>
+                    <div className='col s3 center' style={palette.fontColor}><span>Present </span><br/><span>{parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])}</span></div>
+                    <div className='col s2 center' style={palette.fontColor}><span>Absent</span><br/><span>{x['Hours Absent']}</span></div>
+                    <div className='col s2 center' style={palette.fontColor}><span className='bold'>Bunk</span><br/><span>{Math.floor((parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])) - parseInt(x['Hours Conducted'])*0.75)}</span></div>
+                    <div className='col s2 center' style={palette.fontColor}><span>{x["Room No"]}</span><br/><span className='hide-on-med-and-up'>-</span></div>
+                  </div>
+                  <div className='row' style={{marginBottom: '0'}}>
+                    <Progress
+                      className='col s10'
+                      style={{color: 'white'}}
+                      percent={x['%']}
+                      theme={{
+                        success: {
+                          symbol:' ',
+                          color: '#FCC709'
+                        },
+                        active: {
+                          symbol:' ',
+                          color: '#6970DD',
+                        },
+                        default: {
+                          symbol: '😱',
+                          color: '#4565D3'
+                        }
+                      }}
+                    />
+                    <div className='col s2 percent'>{x['%']}%</div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className='progress-bar'>
-            <Progress
-              percent={x['%']}
-              theme={{
-                success: {
-                  symbol:' ',
-                  color: '#FCC709'
-                },
-                active: {
-                  symbol:' ',
-                  color: '#6970DD',
-                },
-                default: {
-                  symbol: '😱',
-                  color: '#4565D3'
-                }
-              }}
-            />
-            <p className='percent'>{x['%']}%</p>
-            </div>
-          </div>
-          <div className="flip-card-back">
-            <h1>Faculty Name: {x['Faculty Name']}</h1> 
-          </div>
+          )}
         </div>
-      </div>)}
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 

@@ -11,6 +11,7 @@
     "react": "^16.13.1",
     "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.13.1",
+    "react-materialize": "^3.9.2",
     "react-move": "^6.4.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",

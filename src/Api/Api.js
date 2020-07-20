@@ -64,8 +64,8 @@ export const getTimetable= async (cookie,timetabableKey)=>{
             TimeTableKey:timetabableKey
         }
     })
-    localStorage.setItem('attendance',JSON.stringify(response.data))
-    localStorage.setItem('batch',response.data[0].Student_Details[2]['Batch:'])
+    // localStorage.setItem('attendance',JSON.stringify(response.data))
+    // localStorage.setItem('batch',response.data[0].Student_Details[2]['Batch:'])
 }
 
 export const getSchedule= async (cookie,scheduleKey)=>{
