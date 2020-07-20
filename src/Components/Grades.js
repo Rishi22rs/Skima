@@ -45,7 +45,7 @@ const Grades=({match})=>{
 	}
 	return(
 		<>
-			<Nav title={`Grades-${rating}`} medals={medals}/>
+			<Nav title={`Grades-${isNaN(rating)?'':rating}`} medals={medals}/>
 			<div className='main-container' style={palette.background}>
 				<div className="row" style={{marginBottom: '0'}}>
 					{result&&result.Grades.map((x,key)=>
