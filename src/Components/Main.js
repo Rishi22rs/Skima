@@ -75,7 +75,7 @@ const Main = ({match}) => {
                         }
                       }}
                     />
-                    <div className='col s2 percent'>{x['%']}%</div>
+                    <div className='col s2 percent' style={palette.fontColor}>{x['%']}%</div>
                   </div>
                 </div>
               </div>

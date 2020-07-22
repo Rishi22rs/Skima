@@ -50,6 +50,7 @@ export const getKeys= async (cookie)=>{
     }).then(res=>{
         localStorage.setItem('day',res.data.Keys.DayOrder)
         localStorage.setItem('key',res.data.Keys.TimeTableKey)
+        localStorage.setItem('academicPlannerKey',res.data.Keys.AcademicPlannerKey)
         getTimetable(localStorage.getItem('cookie'),res.data.Keys.TimeTableKey)
     })
 }
@@ -76,6 +77,20 @@ export const getSchedule= async (cookie,scheduleKey)=>{
         data: {
             Cookie:cookie,
             ScheduleKey:`Common_Time_Table_Batch_${scheduleKey}`
+        }
+    })
+    return response.data
+}
+
+export const getPlanner = async (cookie) => {
+    const academicPlannerKey = localStorage.getItem('academicPlannerKey')
+    const response=await axios({
+        method: 'post',
+        url: `${path}schedule.php`,
+        headers: {'Content-Type' : 'text/plain'}, 
+        data: {
+            Cookie:cookie,
+            ScheduleKey:`${academicPlannerKey}`
         }
     })
     return response.data

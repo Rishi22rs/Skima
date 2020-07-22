@@ -5,6 +5,7 @@ import Landing from '../Components/Landing'
 import Grades from '../Components/Grades'
 import Timetable from '../Components/Timetable'
 import Store from '../Components/Store'
+import Planner from '../Components/Planner'
 
 const Routes=()=>(
     <Router>
@@ -22,6 +23,9 @@ const Routes=()=>(
         </Switch>
         <Switch>
             <Route path='/HeyWasup/themes/:id' exact component={Store}/>
+        </Switch>
+        <Switch>
+            <Route path='/HeyWasup/planner/:id' exact component={Planner} />
         </Switch>
     </Router>
 )

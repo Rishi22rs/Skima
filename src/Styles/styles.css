@@ -368,3 +368,35 @@
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+
+.mark {
+    color: white !important;
+    background-color: orange !important;
+}
+
+abbr{
+    color: inherit !important;
+}
+.react-calendar__month-view__days__day{
+    color: inherit !important;
+}
+
+.r-calendar {
+    background: inherit !important;
+    color: inherit !important;
+    border: none !important;
+    width: 100% !important;
+}
+
+.react-calendar__navigation__label__labelText{
+    color: inherit !important;
+}
+.react-calendar__navigation__label{
+    color: inherit !important;
+}
+.react-calendar__month-view__days__day--weekend{
+    color: #ffb74d !important;
+}
+.react-calendar__navigation__arrow{
+    color: inherit;
+}
