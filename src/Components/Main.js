@@ -8,38 +8,33 @@ import Sidenav from './Sidenav'
 import Nav from './Nav'
 
 
-const Main = ({match}) => {
+const Main = () => {
 
   const [content,setContent]=useState()
   const [styles,setStyles]=useState({transform:0})
 
   //test feature
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
+  const cookie = localStorage.getItem('cookie');
   
   if(theme === null)localStorage.setItem('theme', 'Default')
 
   useEffect(()=>{
     const getContentData = async()=>{
-      setContent(await getContent(match.params.id))
+      setContent(await getContent(cookie))
     }  
     getContentData()
-    getKeys(match.params.id)
+    getKeys(cookie)
   },[])
 
   // if(timetable.length)
   //   localStorage.setItem('batch',timetable[0].Student_Details[2]['Batch:'])
 
-  const handleFlips=()=>{
-    if(styles.transform===0)setStyles({...styles,transform:180})
-    else setStyles({...styles,transform:0})
-  }
-
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
     <React.Fragment>
-      <Nav/>
       <div className='main-container' style={palette.background}>
-        <div className="row" style={{marginBottom: '0'}}>
+        <div className="row" style={{margin: '0'}}>
           {content && content[1]['Attendance'].map((x, key) =>
             <div key={key} className="col s12 m6 l3">
               <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, parseInt(x['%']) < 50 ? palette.danger : parseInt(x['%']) < 75 ? palette.warning : parseInt(x['%']) < 100 ? palette.safe : palette.safest)}>

@@ -6,6 +6,7 @@ import Grades from '../Components/Grades'
 import Timetable from '../Components/Timetable'
 import Store from '../Components/Store'
 import Planner from '../Components/Planner'
+import BottomNav from '../Components/BottomNav'
 
 const Routes=()=>(
     <Router>
@@ -26,6 +27,9 @@ const Routes=()=>(
         </Switch>
         <Switch>
             <Route path='/HeyWasup/planner/:id' exact component={Planner} />
+        </Switch>
+        <Switch>
+            <Route path='/HeyWasup/btnav/:id' exact component={BottomNav} />
         </Switch>
     </Router>
 )

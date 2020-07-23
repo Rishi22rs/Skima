@@ -3,11 +3,12 @@ import { getGrades } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
 import Nav from './Nav'
 
-const Grades=({match})=>{
+const Grades=()=>{
 
 	if(localStorage.getItem('theme') === null)localStorage.setItem('theme', 'Default')
 	const [result,setResult]=useState()
 	const grades = []
+	const cookie = localStorage.getItem('cookie')
 	
 	const getRating=(grades)=> {
 		let gradeArr = ["F", "C", "C+", "B", "B+", "A", "A+", "O"];
@@ -21,7 +22,7 @@ const Grades=({match})=>{
 
 	useEffect(()=>{
 		const getResultData = async()=>{
-			setResult(await getGrades(match.params.id))
+			setResult(await getGrades(cookie))
 		}
 		if(localStorage.getItem('result')!=='K'){
 			getResultData()

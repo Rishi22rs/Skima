@@ -3,7 +3,6 @@ import Calendar from 'react-calendar';
 import { getPlanner } from '../Api/Api'
 import { cardColorTheme } from './ColorTheme'
 import 'react-calendar/dist/Calendar.css';
-import Nav from './Nav'
 
 const Planner = ({ match })=> {
     const [date, setDate] = useState(new Date())
@@ -15,7 +14,6 @@ const Planner = ({ match })=> {
     const palette = cardColorTheme[localStorage.getItem('theme')]
     return (
         <>
-        <Nav/>
             <div className='main-container' style={Object.assign({}, palette.background, palette.heading)}>
             <Calendar
             value={date}

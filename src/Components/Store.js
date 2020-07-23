@@ -55,7 +55,7 @@ const Store = () => {
   const palette = cardColorTheme[theme]
   return (
       <>
-        <Nav title='Themes'/>
+        {/* <Nav className='blue' title='Themes'/> */}
         <div className="main-container" style={Object.assign({}, palette.background)}>
           <div style={{padding: '0 12px 0 12px'}}>
           <h4 className="store-head" style={palette.heading}>Customize with themes</h4>

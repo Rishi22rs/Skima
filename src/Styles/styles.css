@@ -400,3 +400,8 @@ abbr{
 .react-calendar__navigation__arrow{
     color: inherit;
 }
+.tabs{
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+}
