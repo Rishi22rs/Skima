@@ -8,7 +8,7 @@ import Sidenav from './Sidenav'
 import Nav from './Nav'
 
 
-const Main = () => {
+const Main = ( match ) => {
 
   const [content,setContent]=useState()
   const [styles,setStyles]=useState({transform:0})
@@ -33,6 +33,7 @@ const Main = () => {
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
     <React.Fragment>
+      {(match.isFragment)?'':<Nav title='Attendance'/>}
       <div className='main-container' style={palette.background}>
         <div className="row" style={{margin: '0'}}>
           {content && content[1]['Attendance'].map((x, key) =>
