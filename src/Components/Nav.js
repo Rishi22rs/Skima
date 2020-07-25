@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { cardColorTheme } from './ColorTheme'
 
 const Nav=({
-    title="Attendance"
+    title = "Attendance",
+    medals = ""
 })=>{
 
     const [styles,setStyles]=useState({marginLeft:0,width:0})
@@ -29,17 +30,18 @@ const Nav=({
     const palette = cardColorTheme[localStorage.getItem('theme')]
 
     return(
-    <div className='nav-top' style={Object.assign({},palette.background,palette.heading)}>
-    <div id="mySidenav" className="sidenav" style={Object.assign({},palette.danger,{width:styles.width})}>
-        <Sidenav closeNav={closeNav}/>
-    </div>
-    <div className='main-name-container'>
-        <span style={{fontSize:'30px',cursor:'pointer',left:0}} onClick={triggerNav}>&#9776;</span>
-        <h1>{title}</h1>
-        <Link className='main-logout' onClick={logout} to='/'>🚪</Link>
-    </div>
-    {!isHide?<h1 className='text' onClick={()=>setIsHide(true)} style={palette.danger}>Not internet bro</h1>:<></>}
-    </div>
+        <>
+        <Sidenav/>
+        <div className="navbar-fixed">
+            <nav style={palette.background}>
+            <div class="nav-wrapper"  style={palette.heading}>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i className="material-icons" style={palette.heading}>menu</i></a>
+            <span className="left-align" style={Object.assign({}, palette.heading, { fontSize: '2em', paddingLeft: '8px' })}><i class="material-icons hide-on-med-and-down" style={Object.assign({}, palette.heading, {float: 'left', paddingRight: '8px'})}>arrow_forward</i>{title}</span>
+            <div className='right main-medals'>{medals}</div>
+            </div>
+            </nav>
+        </div>
+        </>
     )
 }
 

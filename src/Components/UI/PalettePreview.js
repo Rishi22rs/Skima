@@ -15,7 +15,7 @@ const palette = cardColorTheme[localStorage.getItem('theme')]
                     <div className='palette-preview' style={props.palette[2]}>Safe</div>
                     <div className='palette-preview' style={props.palette[3]}>Warning</div>
                 </div>
-                <div className="palette-head" style={palette.fontColor}>
+                <div className="palette-head" style={palette.heading}>
                     {props.name}
                 </div>
               <div className={'palette-overlay ' + ((props.name == props.selected)?'ol-visible':'ol-hidden')}><img className='icon-done' src='/assests/images/done.svg'/></div>

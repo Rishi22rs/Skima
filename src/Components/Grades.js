@@ -44,32 +44,30 @@ const Grades=({match})=>{
 		medals.push(<img key={i} className="medal" style={{opacity: 0.5}} src="/assests/images/medal.svg"/>)
 	}
 	return(
-		<div className="main-container" style={palette.background}>
-			<div className='main-name-container'>
-				<Nav title={`Grades-${rating}`} />
-				<h1 className="inline-block right">{medals}</h1>
-            </div>
-			<div>
-				{result&&result.Grades.map((x,key)=>
-				<div key={key} className="flip-card" style={palette.frontCard}>
-					<div className="flip-card-inner" style={palette.flipCardInner}>
-						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger)}>
-							<h2 className='main-heading'>{x['Course Title']}</h2>
-							<div className="center-container">
-								<div className="center">
-									<div className='hours' style={palette.fontColor}>
-										<div className='in-card-hours-detail'><p>Semester </p><p>{x.Sem}</p></div>
-										<div className='in-card-hours-detail'><p>Grade </p><p>{x.Grade}</p></div>
-										<div className='in-card-hours-detail'><p>Result </p><p>{x.Result}</p></div>
-										<div className='in-card-hours-detail'><p>Academic year </p><p>{x['Academic Year'].replace('AY','')}</p></div>
-									</div>
-								</div>
+		<>
+			<Nav title={`Grades-${isNaN(rating)?'':rating}`} medals={medals}/>
+			<div className='main-container' style={palette.background}>
+				<div className="row" style={{marginBottom: '0'}}>
+					{result&&result.Grades.map((x,key)=>
+						<div key={key} className="col s12 m6 l3">
+						<div className="card" style={Object.assign({}, palette.fontColor, x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger)}>
+							<div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
+							<h5 className="center-align truncate">{x['Course Title']}</h5>
+							</div>
+							<div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
+							<div className='row'>
+								<div className='col s3 center' style={palette.fontColor}><span>Semester </span><br/><span>{x.Sem}</span></div>
+								<div className='col s3 center' style={palette.fontColor}><span>Grade </span><br/><span>{x.Grade}</span></div>
+								<div className='col s3 center' style={palette.fontColor}><span>Result </span><br/><span>{x.Result}</span></div>
+								<div className='col s3 center' style={palette.fontColor}><span>Year </span><br/><span>{x['Academic Year'].replace('AY','')}</span></div>
+							</div>
 							</div>
 						</div>
+						</div>
+					)}
 					</div>
-				</div>)}
-			</div>
-		</div>
+				</div>
+		</>
 	)
 }
 

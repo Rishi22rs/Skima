@@ -56,7 +56,7 @@ export const cardColorTheme = {
       backgroundColor: "#FFFFFF"
     },
     heading:{
-      color: "whote"
+      color: "#000000"
     },
     fontColor: {
       color: "#212121"
@@ -74,10 +74,6 @@ export const cardColorTheme = {
       backgroundColor: "#FFFFFF"
     },
     frontCard: {
-      
-    },
-    flipCardInner: {
-      boxShadow: "none",
       borderBottom: "1px solid #EEEEEE"
     }
   },
