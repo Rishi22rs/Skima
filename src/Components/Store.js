@@ -57,7 +57,7 @@ const Store = ( match ) => {
       <>
         {/* <Nav className='blue' title='Themes'/> */}
         {(match.isFragment)?'':<Nav title='Store'/>}
-        <div className="main-container" style={Object.assign({}, palette.background)}>
+        <div className="main-container" style={Object.assign({}, palette.background, {paddingTop: '12px'})}>
           <div style={{padding: '0 12px 0 12px'}}>
           <h4 className="store-head" style={palette.heading}>Customize with themes</h4>
           <div className='row'>
