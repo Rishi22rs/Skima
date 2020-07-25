@@ -7,38 +7,34 @@ import "react-sweet-progress/lib/style.css"
 import Nav from './Nav'
 
 
-const Main = ({match}) => {
+const Main = ( match ) => {
 
   const [content,setContent]=useState()
   const [styles,setStyles]=useState({transform:0})
 
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
+  const cookie = localStorage.getItem('cookie');
   
   if(theme === null)localStorage.setItem('theme', 'Default')
 
   useEffect(()=>{
     if(!navigator.onLine)setContent(JSON.parse(localStorage.getItem('content')))
     const getContentData = async()=>{
-      setContent(await getContent(match.params.id))
+      setContent(await getContent(cookie))
     }  
     getContentData()
-    getKeys(match.params.id)
+    getKeys(cookie)
   },[])
 
   if(localStorage.getItem('content')===null||localStorage.getItem('content')==='undefined')
     localStorage.setItem('content',JSON.stringify(content))
 
-  const handleFlips=()=>{
-    if(styles.transform===0)setStyles({...styles,transform:180})
-    else setStyles({...styles,transform:0})
-  }
-
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
     <React.Fragment>
-      <Nav/>
+      {(match.isFragment)?'':<Nav title='Attendance'/>}
       <div className='main-container' style={palette.background}>
-        <div className="row" style={{marginBottom: '0'}}>
+        <div className="row" style={{margin: '0'}}>
           {content && content[1]['Attendance'].map((x, key) =>
             <div key={key} className="col s12 m6 l3">
               <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, parseInt(x['%']) < 50 ? palette.danger : parseInt(x['%']) < 75 ? palette.warning : parseInt(x['%']) < 100 ? palette.safe : palette.safest)}>
