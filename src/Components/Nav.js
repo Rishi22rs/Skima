@@ -36,7 +36,7 @@ const Nav=({
             <nav style={palette.background}>
             <div class="nav-wrapper"  style={palette.heading}>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i className="material-icons" style={palette.heading}>menu</i></a>
-            <span className="left-align" style={Object.assign({}, palette.heading, { fontSize: '2em', paddingLeft: '8px' })}><i class="material-icons hide-on-med-and-down" style={Object.assign({}, palette.heading, {float: 'left', paddingRight: '8px'})}>arrow_forward</i>{title}</span>
+            <span className="left-align" style={Object.assign({}, palette.heading, { fontSize: '2em', paddingLeft: '8px' })}><i class="material-icons hide-on-med-and-down" style={Object.assign({}, palette.heading, {float: 'left', padding: '0 8px 0 18px'})}>arrow_forward</i>{title}</span>
             <div className='right main-medals'>{medals}</div>
             </div>
             </nav>

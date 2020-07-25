@@ -44,11 +44,14 @@
     -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.sidenav');
-      var instances = M.Sidenav.init(elems);
-      window.sidenav = M.Sidenav.getInstance(elems[0])
-      });
+      // document.addEventListener('DOMContentLoaded', function() {
+      window.initSidenav = () => {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+      }
+      // window.MSidenav = M.Sidenav;  
+      // window.sidenav = M.Sidenav.getInstance(elems[0])
+      // });
     </script>
   </body>
 </html>
