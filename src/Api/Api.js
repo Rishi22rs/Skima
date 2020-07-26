@@ -24,6 +24,9 @@ export const getContent= async (cookie)=>{
             Cookie:cookie
         }
     })
+    localStorage.setItem('regno',response.data[0]['Academic Status'][0]['Registration Number'])
+    localStorage.setItem('degree',response.data[0]['Academic Status'][2]['Program'])
+    localStorage.setItem('dept',response.data[0]['Academic Status'][3]['Department'])
     return response.data
 }
 

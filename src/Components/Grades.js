@@ -3,7 +3,7 @@ import { getGrades } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
 import Nav from './Nav'
 
-const Grades=()=>{
+const Grades=( match )=>{
 
 	if(localStorage.getItem('theme') === null)localStorage.setItem('theme', 'Default')
 	const [result,setResult]=useState()
@@ -44,11 +44,13 @@ const Grades=()=>{
 		if(i == Math.floor(rating)-1 && rating - Math.floor(rating) >= 0.5)
 		medals.push(<img key={i} className="medal" style={{opacity: 0.5}} src="/assests/images/medal.svg"/>)
 	}
+
+	localStorage.setItem('rate',rating)
 	return(
 		<>
-			<Nav title={`Grades-${isNaN(rating)?'':rating}`} medals={medals}/>
+			{(match.isFragment)?'':<Nav title={`Grades-${isNaN(rating)?'':rating}`} medals={medals}/>}
 			<div className='main-container' style={palette.background}>
-				<div className="row" style={{marginBottom: '0'}}>
+				<div className="row" style={{margin: 0}}>
 					{result&&result.Grades.map((x,key)=>
 						<div key={key} className="col s12 m6 l3">
 						<div className="card" style={Object.assign({}, palette.fontColor, x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger)}>

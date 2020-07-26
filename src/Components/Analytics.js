@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Bar,Line,Pie } from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 import { getRanks } from '../Api/Api'
 import Nav from './Nav'
 
@@ -15,31 +15,37 @@ const Analytics = () => {
         getRank()
     },[])
 
-    console.log()
+    console.log(rank)
 
     return ( 
-        <div>
-            <Nav title="Analytics report" />
+        <>
+        <Nav title="Analytics report" />
+        <div className="main-container">
             {rank!==undefined?
             <>
-
-            <h2>Section</h2>
+            <h4>Section wise</h4>
             <Line
                 data={{
                     labels:rank.analysis.section.ratings,
                     datasets:[
                         {
                             label:"Rating",
-                            data:rank.analysis.section.ratings
+                            data:rank.analysis.section.ratings,
+                            backgroundColor:'rgba(23,67,88,0.5)'
                         }
-                    ],
-                    backgroundColor:'red'
+                    ],  
                 }}
                 options={{ }}
             />
+            <h4>Strean report</h4>
+            <h6>Average: </h6><p>{rank.analysis.stream.average}</p>
+            <h6>Count: </h6><p>{rank.analysis.stream.count}</p>
+            <h6>Max: </h6><p>{rank.analysis.stream.max}</p>
+            <h6>Your rank: </h6><p>{rank.analysis.stream.rank}</p>
             </>:<h1>Loading</h1>
             }
         </div>
+        </>
     );
 }
  
