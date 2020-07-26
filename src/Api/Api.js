@@ -95,3 +95,20 @@ export const getPlanner = async (cookie) => {
     })
     return response.data
 }
+
+export const getRanks = async (regno,section,degree,stream,rating) => {
+    const academicPlannerKey = localStorage.getItem('academicPlannerKey')
+    const response=await axios({
+        method: 'post',
+        url: `${path}rank.php`,
+        headers: {'Content-Type' : 'text/plain'}, 
+        data: {
+            regno,
+            section,
+            degree,
+            stream,
+            rating
+        }
+    })
+    return response.data
+}
