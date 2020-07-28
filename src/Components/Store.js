@@ -5,7 +5,7 @@ import "react-sweet-progress/lib/style.css"
 import PalettePreview from './UI/PalettePreview.js'
 import Nav from './Nav';
 
-const Store = () => {
+const Store = ( match ) => {
 
   const paletteStrip = {
       Default: [{
@@ -46,7 +46,21 @@ const Store = () => {
       }, {
           backgroundColor: '#313131',
           color: '#FFFFFF'
-      }]
+      }],
+      DarkColorful: [{
+        backgroundColor: '#150C29',
+        color: '#FFFFFF'
+      }, {
+          backgroundColor: 'white',
+          color: 'black'
+      }, {
+          backgroundColor: '#121212',
+          color: '#FFFFFF'
+      }, {
+          backgroundColor: '#313131',
+          color: '#FFFFFF'
+      }],
+      
   }
   
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
@@ -55,8 +69,9 @@ const Store = () => {
   const palette = cardColorTheme[theme]
   return (
       <>
-        <Nav title='Themes'/>
-        <div className="main-container" style={Object.assign({}, palette.background)}>
+        {/* <Nav className='blue' title='Themes'/> */}
+        {(match.isFragment)?'':<Nav title='Store'/>}
+        <div className="main-container" style={Object.assign({}, palette.background, {paddingTop: '12px'})}>
           <div style={{padding: '0 12px 0 12px'}}>
           <h4 className="store-head" style={palette.heading}>Customize with themes</h4>
           <div className='row'>

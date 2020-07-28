@@ -82,7 +82,7 @@
 }
 .main-container{
     margin: 0;
-    padding-top: 12px;
+    /* padding-top: 12px; */
     width: 100%;
     min-height: 100vh;
     transition: margin-left .5s;
@@ -399,4 +399,9 @@ abbr{
 }
 .react-calendar__navigation__arrow{
     color: inherit;
+}
+.tabs{
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
 }

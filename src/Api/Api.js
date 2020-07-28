@@ -24,6 +24,9 @@ export const getContent= async (cookie)=>{
             Cookie:cookie
         }
     })
+    localStorage.setItem('regno',response.data[0]['Academic Status'][0]['Registration Number'])
+    localStorage.setItem('degree',response.data[0]['Academic Status'][2]['Program'])
+    localStorage.setItem('dept',response.data[0]['Academic Status'][3]['Department'])
     return response.data
 }
 
@@ -91,6 +94,23 @@ export const getPlanner = async (cookie) => {
         data: {
             Cookie:cookie,
             ScheduleKey:`${academicPlannerKey}`
+        }
+    })
+    return response.data
+}
+
+export const getRanks = async (regno,section,degree,stream,rating) => {
+    const academicPlannerKey = localStorage.getItem('academicPlannerKey')
+    const response=await axios({
+        method: 'post',
+        url: `${path}rank.php`,
+        headers: {'Content-Type' : 'text/plain'}, 
+        data: {
+            regno,
+            section,
+            degree,
+            stream,
+            rating
         }
     })
     return response.data
