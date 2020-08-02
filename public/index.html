@@ -51,6 +51,11 @@
         var elems = document.querySelectorAll('.tabs');
         var instancess = M.Tabs.init(elems);
       }
+      window.closeSidenav = () => {
+        var elems = document.querySelectorAll('.sidenav');
+        var instance = M.Sidenav.getInstance(elems[0]);
+        instance.close();
+      }
       // window.MSidenav = M.Sidenav;  
       // window.sidenav = M.Sidenav.getInstance(elems[0])
       // });
