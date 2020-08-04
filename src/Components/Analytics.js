@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Line} from 'react-chartjs-2'
 import { getRanks } from '../Api/Api'
+import { cardColorTheme } from './ColorTheme'
 import Nav from './Nav'
 
 const Analytics = () => {
@@ -16,14 +17,15 @@ const Analytics = () => {
     },[])
 
     console.log(rank)
+    const palette = cardColorTheme[localStorage.getItem('theme')]
 
     return ( 
         <>
         <Nav title="Analytics report" />
-        <div className="main-container">
+        <div className="main-container" style={palette.background}>
             {rank!==undefined?
-            <>
-            <h4>Section wise</h4>
+            <div style={{padding: '12px 0 0 12px'}}>
+            <h4 style={palette.fontColor}>Section wise</h4>
             <Line
                 data={{
                     labels:rank.analysis.section.ratings,
@@ -37,12 +39,14 @@ const Analytics = () => {
                 }}
                 options={{ }}
             />
-            <h4>Strean report</h4>
-            <h6>Average: </h6><p>{rank.analysis.stream.average}</p>
-            <h6>Count: </h6><p>{rank.analysis.stream.count}</p>
-            <h6>Max: </h6><p>{rank.analysis.stream.max}</p>
-            <h6>Your rank: </h6><p>{rank.analysis.stream.rank}</p>
-            </>:<h1>Loading</h1>
+            <h4 style={palette.fontColor}>Strean report</h4>
+            <div style={{paddingLeft: '8px'}}>
+                <h6 style={palette.fontColor}>Average: </h6><p style={palette.fontColor}>{rank.analysis.stream.average}</p>
+                <h6 style={palette.fontColor}>Count: </h6><p style={palette.fontColor}>{rank.analysis.stream.count}</p>
+                <h6 style={palette.fontColor}>Max: </h6><p style={palette.fontColor}>{rank.analysis.stream.max}</p>
+                <h6 style={palette.fontColor}>Your rank: </h6><p style={palette.fontColor}>{rank.analysis.stream.rank}</p>
+            </div>
+            </div>:<h1>Loading</h1>
             }
         </div>
         </>
