@@ -40,7 +40,7 @@ const Attendance = ( match ) => {
   return (
     <React.Fragment>
       {(match.isFragment)?'':<Nav title='Attendance'/>}
-      {content&&content[0]?<div className='main-container' style={palette.background}>
+      {content&&content[0]?<div className='main-container' style={Object.assign({},palette.background, {paddingBottom: '18px'})}>
         <div className="row" style={{margin: '0'}}>
           {content && content[1]['Attendance'].map((x, key) =>
             <div key={key} className="col s12 m6 l3">

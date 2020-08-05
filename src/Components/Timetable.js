@@ -4,7 +4,7 @@ import {cardColorTheme} from './ColorTheme'
 import nowork from '../Graphics/nowork.jpg'
 import Nav from './Nav'
 
-const Timetable = ({match}) => {
+const Timetable = (match) => {
 
     if(localStorage.getItem('theme') === null)localStorage.setItem('theme', 'Default')
     const [schedule,setSchedule]=useState()    
@@ -14,7 +14,7 @@ const Timetable = ({match}) => {
 
     useEffect(()=>{
         const getScheduleData=async()=>{
-            setSchedule(await getSchedule(match.params.id,localStorage.getItem('batch')))
+            setSchedule(await getSchedule(localStorage.getItem('cookie'),localStorage.getItem('batch')))
         }
         getScheduleData()
         if(localStorage.getItem('day')==='No Day Order')setShift(-window.innerWidth*5+44)
@@ -47,128 +47,121 @@ const Timetable = ({match}) => {
     console.log(arrangedTimetable)
     console.log(schedule)
 
-    return ( 
+    return (
+        <>
+        {(match.isFragment)?'':<Nav title='Timetable'/>}
         <div className='main-container' style={palette.background}>
-            <Nav title='Timetable'/>
-            <div className='cards'>
-            <div className='btn-container'>
-                <button className='btn' onClick={()=>setShift(-6)} style={{marginRight:10,marginLeft:-10}}>1</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth+4)}>2</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth*2+14)} style={{marginLeft:10,marginRight:10}}>3</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth*3+24)} style={{marginRight:10}}>4</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth*4+34)} style={{marginRight:10}}>5</button>
-                <button className='btn' onClick={()=>setShift(-window.innerWidth*5+44)} style={{marginRight:10}}>Chill</button>
-            </div>
-            <div className='timetable'>
-                <div className='day-order-container' style={{transform:`translate(${shift}px,0)`}}>
-                    
-                <div className='day-order'>
-                {arrangedTimetable&&arrangedTimetable[0].map((x,key)=>
-                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner" style={palette.flipCardInner}>
-						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
-							<h2 className='main-heading'>{x['Course Title']}</h2>
-                                <div className="center-container">
-                                    <div className="center">
-                                        <p>{x['Faculty Name']}</p>
-                                        <div className='hours'>
-                                            <div className='in-card-hours-detail'><h2>{x.time.trim()}</h2></div>
-                                            <div className='in-card-hours-detail' style={{marginTop:5}}><p>{x['Room No.']}</p></div>
-                                        </div>
-                                        <h2>{x.Slot}</h2>
+            <div className=''>
+            <div class="row" style={{margin: 0, paddingBottom: '18px'}}>
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s2"><a href="#test1">1</a></li>
+                        <li class="tab col s2"><a href="#test2">2</a></li>
+                        <li class="tab col s2"><a href="#test3">3</a></li>
+                        <li class="tab col s2"><a href="#test4">4</a></li>
+                        <li class="tab col s2"><a href="#test5">5</a></li>
+                        <li class="tab col s2"><a href="#test6">6</a></li>
+                    </ul>
+                </div>
+                <div id="test1" class="col s12">
+                    {arrangedTimetable&&arrangedTimetable[0].map((x,key)=>
+                    <div className="row" style={{margin: 0}}>
+                        <div key={key}>
+                            <div className="card" style={palette.safest}>
+                                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
+                                    <h5 className="center-align truncate">{x['Course Title']}</h5>  
+                                </div>
+                                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
+                                    <div className='row'>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
+                                        <div className='col s4 center' style={palette.fontColor}><span></span><br/><span>{x['Room No.']}</span></div>
                                     </div>
-                                </div>        
+                                </div>
                             </div>
                         </div>
                     </div>)}
                 </div>
-                <div className='day-order'>
-                {arrangedTimetable&&arrangedTimetable[1].map((x,key)=>
-                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner" style={palette.flipCardInner}>
-						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
-							<h2 className='main-heading'>{x['Course Title']}</h2>
-                                <div className="center-container">
-                                    <div className="center">
-                                        <p>{x['Faculty Name']}</p>
-                                        <div className='hours'>
-                                            <div className='in-card-hours-detail'><h2>{x.time.trim()}</h2></div>
-                                            <div className='in-card-hours-detail' style={{marginTop:5}}><p>{x['Room No.']}</p></div>
-                                        </div>
-                                        <h2>{x.Slot}</h2>
+                <div id="test2" class="col s12">
+                    {arrangedTimetable&&arrangedTimetable[1].map((x,key)=>
+                    <div className="row" style={{margin: 0}}>
+                        <div key={key}>
+                            <div className="card" style={palette.safest}>
+                                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
+                                    <h5 className="center-align truncate">{x['Course Title']}</h5>  
+                                </div>
+                                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
+                                    <div className='row'>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div>
                                     </div>
-                                </div>        
+                                </div>
                             </div>
                         </div>
                     </div>)}
                 </div>
-                <div className='day-order'>
-                {arrangedTimetable&&arrangedTimetable[2].map((x,key)=>
-                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner" style={palette.flipCardInner}>
-						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
-							<h2 className='main-heading'>{x['Course Title']}</h2>
-                                <div className="center-container">
-                                    <div className="center">
-                                        <p>{x['Faculty Name']}</p>
-                                        <div className='hours'>
-                                            <div className='in-card-hours-detail'><h2>{x.time.trim()}</h2></div>
-                                            <div className='in-card-hours-detail' style={{marginTop:5}}><p>{x['Room No.']}</p></div>
-                                        </div>
-                                        <h2>{x.Slot}</h2>
+                <div id="test3" class="col s12">
+                    {arrangedTimetable&&arrangedTimetable[2].map((x,key)=>
+                    <div className="row" style={{margin: 0}}>
+                        <div key={key}>
+                            <div className="card" style={palette.safest}>
+                                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
+                                    <h5 className="center-align truncate">{x['Course Title']}</h5>  
+                                </div>
+                                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
+                                    <div className='row'>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div>
                                     </div>
-                                </div>        
+                                </div>
                             </div>
                         </div>
                     </div>)}
                 </div>
-                <div className='day-order'>
-                {arrangedTimetable&&arrangedTimetable[3].map((x,key)=>
-                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner" style={palette.flipCardInner}>
-						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
-							<h2 className='main-heading'>{x['Course Title']}</h2>
-                                <div className="center-container">
-                                    <div className="center">
-                                        <p>{x['Faculty Name']}</p>
-                                        <div className='hours'>
-                                            <div className='in-card-hours-detail'><h2>{x.time.trim()}</h2></div>
-                                            <div className='in-card-hours-detail' style={{marginTop:5}}><p>{x['Room No.']}</p></div>
-                                        </div>
-                                        <h2>{x.Slot}</h2>
+                <div id="test4" class="col s12">
+                    {arrangedTimetable&&arrangedTimetable[3].map((x,key)=>
+                    <div className="row" style={{margin: 0}}>
+                        <div key={key}>
+                            <div className="card" style={palette.safest}>
+                                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
+                                    <h5 className="center-align truncate">{x['Course Title']}</h5>  
+                                </div>
+                                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
+                                    <div className='row'>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
+                                        <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div>
                                     </div>
-                                </div>        
+                                </div>
                             </div>
                         </div>
                     </div>)}
                 </div>
-                <div className='day-order'>
-                {arrangedTimetable&&arrangedTimetable[4].map((x,key)=>
-                <div key={key} className="flip-card" style={{width:window.innerWidth-20}}>
-					<div className="flip-card-inner" style={palette.flipCardInner}>
-						<div className="flip-card-front" style={Object.assign({}, palette.fontColor, palette.safest)}>
-							<h2 className='main-heading'>{x['Course Title']}</h2>
-                                <div className="center-container">
-                                    <div className="center">
-                                        <p>{x['Faculty Name']}</p>
-                                        <div className='hours'>
-                                            <div className='in-card-hours-detail'><h2>{x.time.trim()}</h2></div>
-                                            <div className='in-card-hours-detail' style={{marginTop:5}}><p>{x['Room No.']}</p></div>
-                                        </div>
-                                        <h2>{x.Slot}</h2>
+                <div id="test5" class="col s12">
+                        {arrangedTimetable&&arrangedTimetable[4].map((x,key)=>
+                        <div className="row" style={{margin: 0}}>
+                            <div key={key}>
+                                <div className="card" style={palette.safest}>
+                                    <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
+                                        <h5 className="center-align truncate">{x['Course Title']}</h5>  
                                     </div>
-                                </div>        
+                                    <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
+                                        <div className='row'>
+                                            <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
+                                            <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
+                                            <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>)}
+                        </div>)}
+                    </div>
                 </div>
-                <div className='day-order img'>
-                    <img src={nowork} width={window.innerWidth-20} height={400} alt='no work'/>
-                </div>
-                </div>
-            </div>
             </div>
         </div>    
+        </>
     )
 }
  
