@@ -12,6 +12,8 @@ export const getCookie= async (email,password)=>{
             password:password
         }
     })
+    localStorage.setItem('username',email)
+    localStorage.setItem('password',password)
     return response.data.Cookie
 }
 
@@ -54,7 +56,7 @@ export const getKeys= async (cookie)=>{
         localStorage.setItem('day',res.data.Keys.DayOrder)
         localStorage.setItem('key',res.data.Keys.TimeTableKey)
         localStorage.setItem('academicPlannerKey',res.data.Keys.AcademicPlannerKey)
-        getTimetable(localStorage.getItem('cookie'),res.data.Keys.TimeTableKey)
+        getTimetable(localStorage.getItem('cookie'),res.data.Keys.AcademicPlannerKey)
     })
 }
 
@@ -65,10 +67,12 @@ export const getTimetable= async (cookie,timetabableKey)=>{
         headers: {'Content-Type' : 'text/plain'}, 
         data: {
             Cookie:cookie,
-            TimeTableKey:timetabableKey
+            TimeTableKey:"My_Time_Table_2020_21_Odd"
         }
     })
-    // localStorage.setItem('attendance',JSON.stringify(response.data))
+    console.log(response.data)
+    return response.data
+    /localStorage.setItem('attendance',JSON.stringify(response.data))
     // localStorage.setItem('batch',response.data[0].Student_Details[2]['Batch:'])
 }
 
@@ -79,7 +83,7 @@ export const getSchedule= async (cookie,scheduleKey)=>{
         headers: {'Content-Type' : 'text/plain'}, 
         data: {
             Cookie:cookie,
-            ScheduleKey:`Common_Time_Table_Batch_${scheduleKey}`
+            ScheduleKey:`Virtual_Class_Time_Table`
         }
     })
     return response.data

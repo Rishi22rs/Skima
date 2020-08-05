@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {getContent,getKeys} from '../Api/Api'
+import {getContent,getKeys,getCookie} from '../Api/Api'
 import { Link } from 'react-router-dom'
 import {cardColorTheme} from './ColorTheme'
 import { Progress } from 'react-sweet-progress'
@@ -24,9 +24,15 @@ const Attendance = ( match ) => {
       setContent(await getContent(cookie))
     }  
     getContentData()
-    getKeys(cookie)
+    const getKey=async()=>{
+      await getKeys(cookie)
+    }
+    getKey()
   },[])
-  
+
+  if(content)
+    console.log(content)
+
   // if(timetable.length)
   //   localStorage.setItem('batch',timetable[0].Student_Details[2]['Batch:'])
 
@@ -34,7 +40,7 @@ const Attendance = ( match ) => {
   return (
     <React.Fragment>
       {(match.isFragment)?'':<Nav title='Attendance'/>}
-      <div className='main-container' style={palette.background}>
+      {content&&content[0]?<div className='main-container' style={palette.background}>
         <div className="row" style={{margin: '0'}}>
           {content && content[1]['Attendance'].map((x, key) =>
             <div key={key} className="col s12 m6 l3">
@@ -78,7 +84,7 @@ const Attendance = ( match ) => {
             </div>
           )}
         </div>
-      </div>
+      </div>:<h1>Cookie expired</h1>}
     </React.Fragment>
   );
 }
