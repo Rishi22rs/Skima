@@ -12,8 +12,6 @@ export const getCookie= async (email,password)=>{
             password:password
         }
     })
-    localStorage.setItem('username',email)
-    localStorage.setItem('password',password)
     return response.data.Cookie
 }
 

@@ -1,0 +1,83 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.texti{
+    position: relative;
+    color:white;
+    text-align: center;
+    transition: 0.5s;
+}
+.btni{
+    position: relative;
+    background-color: #EFF774;
+    padding: 20px;
+    width:250px;
+    border-radius: 30px;
+    border:none;
+    outline: none;
+}
+.containeri{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    position: absolute;
+    background-image: url("../Graphics/background.jpg");
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+.form-containeri{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: white;
+    height: 100%;
+    transition: 0.5s;
+    border-radius: 50px;
+}
+.formi{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+span{
+    margin-right: 10px;
+    margin-top:10px;
+}
+input{
+    border: none;
+    font-size: 20px;
+    border-bottom: 1px solid grey;
+    outline: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .master-containeri{
+        display:flex;
+        flex-direction: row-reverse;
+    }
+    .form-containeri{
+        position: relative;
+        top:50%;
+        right:0;
+        bottom: 0;
+        width: 50%;
+        margin-top: 300px;
+    }
+    .containeri{
+        right:50%;
+    }
+
+  } 
