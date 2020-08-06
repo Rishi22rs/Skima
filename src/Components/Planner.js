@@ -1,11 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Calendar from 'react-calendar';
-import { getPlanner } from '../Api/Api'
+import { getPlanner, getDaywisePlanner } from '../Api/Api'
 import { cardColorTheme } from './ColorTheme'
 import 'react-calendar/dist/Calendar.css';
 import Nav from './Nav'
 
 const Planner = ( match )=> {
+
+    const [plannerData,setPlannerData]=useState()
+    useEffect(()=>{
+        const getPlanner=async()=>{
+            setPlannerData(await getDaywisePlanner(localStorage.getItem('cookie'),"Academic_Planner_2020_21_ODD"))
+        }
+        getPlanner()
+    },[])
+
+    console.log(plannerData)
+
     const [date, setDate] = useState(new Date())
     const mark = [
         '3-08-2020',

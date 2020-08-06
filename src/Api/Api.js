@@ -117,3 +117,17 @@ export const getRanks = async (regno,section,degree,stream,rating) => {
     })
     return response.data
 }
+
+export const getDaywisePlanner= async (cookie,key) => {
+    const academicPlannerKey = localStorage.getItem('academicPlannerKey')
+    const response=await axios({
+        method: 'post',
+        url: `${path}planner.php`,
+        headers: {'Content-Type' : 'text/plain'}, 
+        data: {
+           Cookie:cookie,
+           AcademicPlannerKey:key
+        }
+    })
+    return response.data
+}
