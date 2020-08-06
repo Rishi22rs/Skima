@@ -25,7 +25,7 @@ const Analytics = () => {
         <div className="main-container" style={Object.assign({}, palette.background, {minHeight: '100vh'})}>
             {rank!==undefined?
             <div style={{padding: '12px 0 0 12px'}}>
-            <h4 style={palette.fontColor}>Section wise</h4>
+            <h4 style={palette.heading}>Section wise</h4>
             <Line
                 data={{
                     labels:rank.analysis.section.ratings,
