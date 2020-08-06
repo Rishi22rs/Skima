@@ -29,7 +29,7 @@ function Landing() {
 
   if(cookie!==undefined&&cookie!==null){
     localStorage.setItem('cookie',cookie)
-    return <Redirect to={`/HeyWasup/${cookie}`} />
+    return <Redirect to={`/HeyWasup/attendance`} />
   }
   
 

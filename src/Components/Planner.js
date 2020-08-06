@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar';
 import { getPlanner } from '../Api/Api'
+import BottomNav from './BottomNav'
 import { cardColorTheme } from './ColorTheme'
 import 'react-calendar/dist/Calendar.css';
 import Nav from './Nav'
@@ -27,6 +28,7 @@ const Planner = ( match )=> {
             }}
         />
         </div>
+        <BottomNav/>
         </>
     )
 }
