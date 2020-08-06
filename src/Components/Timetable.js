@@ -24,7 +24,7 @@ const Timetable = (match) => {
     const arrageTimetable=()=>{
         let timeIndex=0
         let timetable=[]
-        for(let i=1;i<6;i++){
+        for(let i=1;i<7;i++){
             schedule&&schedule.Schedule[`Day ${i}`].map(s=>{
                 JSON.parse(localStorage.getItem('attendance'))[1].TimeTable.map(x=>{
                     if(x.Slot!==undefined){
@@ -54,8 +54,8 @@ const Timetable = (match) => {
             <div className=''>
             <div class="row" style={{margin: 0, paddingBottom: '18px'}}>
                 <div class="col s12">
-                    <ul class="tabs">
-                        <li class="tab col s2"><a href="#test1">1</a></li>
+                    <ul id="tabs-swipe-demo" class="tabs" style={Object.assign({}, palette.background, {zIndex: 99})}>
+                        <li class="tab col s2"><a href="#test-swipe-1">1</a></li>
                         <li class="tab col s2"><a href="#test2">2</a></li>
                         <li class="tab col s2"><a href="#test3">3</a></li>
                         <li class="tab col s2"><a href="#test4">4</a></li>
@@ -63,7 +63,7 @@ const Timetable = (match) => {
                         <li class="tab col s2"><a href="#test6">6</a></li>
                     </ul>
                 </div>
-                <div id="test1" class="col s12">
+                <div id="test-swipe-1" class="col s12">
                     {arrangedTimetable&&arrangedTimetable[0].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
                         <div key={key}>
@@ -141,6 +141,25 @@ const Timetable = (match) => {
                 </div>
                 <div id="test5" class="col s12">
                         {arrangedTimetable&&arrangedTimetable[4].map((x,key)=>
+                        <div className="row" style={{margin: 0}}>
+                            <div key={key}>
+                                <div className="card" style={palette.safest}>
+                                    <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
+                                        <h5 className="center-align truncate">{x['Course Title']}</h5>  
+                                    </div>
+                                    <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
+                                        <div className='row'>
+                                            <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
+                                            <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
+                                            <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>)}
+                    </div>
+                    <div id="test6" class="col s12">
+                        {arrangedTimetable&&arrangedTimetable[5].map((x,key)=>
                         <div className="row" style={{margin: 0}}>
                             <div key={key}>
                                 <div className="card" style={palette.safest}>

@@ -50,6 +50,8 @@
         var instances = M.Sidenav.init(elems);
         var elems = document.querySelectorAll('.tabs');
         var instancess = M.Tabs.init(elems);
+        var elems = document.querySelectorAll('#tabs-swipe-demo');
+        var instancess = M.Tabs.init(elems, { swipeable: true });
       }
       window.closeSidenav = () => {
         var elems = document.querySelectorAll('.sidenav');

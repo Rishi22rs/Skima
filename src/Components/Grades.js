@@ -49,7 +49,7 @@ const Grades=( match )=>{
 	return(
 		<>
 			{(match.isFragment)?'':<Nav title={`Grades-${isNaN(rating)?'':rating}`} medals={medals}/>}
-			<div className='main-container' style={palette.background}>
+			<div className='main-container' style={Object.assign({}, palette.background, {minHeight: '100vh'})}>
 				<div className="row" style={{margin: 0}}>
 					{result&&result.Grades.map((x,key)=>
 						<div key={key} className="col s12 m6 l3">

@@ -38,9 +38,9 @@ const Attendance = ( match ) => {
 
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
-    <React.Fragment>
+    <div style={Object.assign({},palette.background, {minHeight: '100vh'})}>
       {(match.isFragment)?'':<Nav title='Attendance'/>}
-      {content&&content[0]?<div className='main-container' style={Object.assign({},palette.background, {paddingBottom: '18px'})}>
+      {content&&content[0]?<div className='main-container' style={Object.assign({}, {paddingBottom: '18px'})}>
         <div className="row" style={{margin: '0'}}>
           {content && content[1]['Attendance'].map((x, key) =>
             <div key={key} className="col s12 m6 l3">
@@ -85,7 +85,7 @@ const Attendance = ( match ) => {
           )}
         </div>
       </div>:<h1>Cookie expired</h1>}
-    </React.Fragment>
+    </div>
   );
 }
 

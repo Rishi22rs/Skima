@@ -22,7 +22,7 @@ const Analytics = () => {
     return ( 
         <>
         <Nav title="Analytics report" />
-        <div className="main-container" style={palette.background}>
+        <div className="main-container" style={Object.assign({}, palette.background, {minHeight: '100vh'})}>
             {rank!==undefined?
             <div style={{padding: '12px 0 0 12px'}}>
             <h4 style={palette.fontColor}>Section wise</h4>

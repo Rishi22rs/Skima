@@ -16,7 +16,7 @@ const Planner = ( match )=> {
     return (
         <>
             {(match.isFragment)?'':<Nav title='Planner'/>}
-            <div className='main-container' style={Object.assign({}, palette.background, palette.heading)}>
+            <div className='main-container' style={Object.assign({}, palette.background, palette.heading, {minHeight: '100vh'})}>
             <Calendar
             value={date}
             className='r-calendar white-text'

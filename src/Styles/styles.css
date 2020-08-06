@@ -404,3 +404,7 @@ abbr{
     z-index: 99;
     bottom: 0;
 }
+.carousel{
+    height: 83.58vh !important;
+    overflow-y: scroll;
+}
