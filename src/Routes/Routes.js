@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router,Switch,Route, Link } from 'react-router-dom'
-import Main from '../Components/Main'
 import Landing from '../Components/Landing'
 import Grades from '../Components/Grades'
 import Timetable from '../Components/Timetable'
@@ -14,26 +13,26 @@ const Routes=()=>(
         <Switch>
             <Route path='/' exact component={Landing}/>
         </Switch>
+        {/* <Switch>
+            <Route path='/HeyWasup' exact component={Main}/>
+        </Switch> */}
         <Switch>
-            <Route path='/HeyWasup/:id' exact component={Main}/>
+            <Route path='/HeyWasup/attendance' exact component={Attendance} />
         </Switch>
         <Switch>
-            <Route path='/HeyWasup/attendance/:id' exact component={Attendance} />
+            <Route path='/HeyWasup/grades' exact component={Grades}/>
         </Switch>
         <Switch>
-            <Route path='/HeyWasup/grades/:id' exact component={Grades}/>
+            <Route path='/HeyWasup/timetable' exact component={Timetable}/>
         </Switch>
         <Switch>
-            <Route path='/HeyWasup/timetable/:id' exact component={Timetable}/>
+            <Route path='/HeyWasup/themes' exact component={Store}/>
         </Switch>
         <Switch>
-            <Route path='/HeyWasup/themes/:id' exact component={Store}/>
+            <Route path='/HeyWasup/planner' exact component={Planner} />
         </Switch>
         <Switch>
-            <Route path='/HeyWasup/planner/:id' exact component={Planner} />
-        </Switch>
-        <Switch>
-            <Route path='/HeyWasup/analytics/:id' exact component={Analytics} />
+            <Route path='/HeyWasup/analytics' exact component={Analytics} />
         </Switch>
     </Router>
 )

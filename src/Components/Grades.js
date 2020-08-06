@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getGrades } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
 import Nav from './Nav'
+import BottomNav from './BottomNav'
 
 const Grades=( match )=>{
 
@@ -69,6 +70,7 @@ const Grades=( match )=>{
 						</div>
 					)}
 					</div>
+				<BottomNav />
 				</div>
 		</>
 	)

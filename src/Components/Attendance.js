@@ -5,8 +5,8 @@ import {cardColorTheme} from './ColorTheme'
 import { Progress } from 'react-sweet-progress'
 import "react-sweet-progress/lib/style.css"
 import Sidenav from './Sidenav'
+import BottomNav from './BottomNav'
 import Nav from './Nav'
-
 
 const Attendance = ( match ) => {
 
@@ -85,6 +85,7 @@ const Attendance = ( match ) => {
           )}
         </div>
       </div>:<h1>Cookie expired</h1>}
+      <BottomNav/>
     </div>
   );
 }

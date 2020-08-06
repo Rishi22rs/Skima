@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getSchedule } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
+import BottomNav from './BottomNav'
 import nowork from '../Graphics/nowork.jpg'
 import Nav from './Nav'
 
@@ -179,7 +180,8 @@ const Timetable = (match) => {
                     </div>
                 </div>
             </div>
-        </div>    
+        </div> 
+        <BottomNav/>   
         </>
     )
 }

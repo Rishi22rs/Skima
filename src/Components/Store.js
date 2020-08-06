@@ -4,6 +4,7 @@ import { Progress } from 'react-sweet-progress'
 import "react-sweet-progress/lib/style.css"
 import PalettePreview from './UI/PalettePreview.js'
 import Nav from './Nav';
+import BottomNav from './BottomNav';
 
 const Store = ( match ) => {
 
@@ -123,6 +124,7 @@ const Store = ( match ) => {
             </div>
           </div>
         </div>
+        <BottomNav/>
       </>
   );
 }

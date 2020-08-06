@@ -3,6 +3,7 @@ import {Line} from 'react-chartjs-2'
 import { getRanks } from '../Api/Api'
 import { cardColorTheme } from './ColorTheme'
 import Nav from './Nav'
+import BottomNav from './BottomNav'
 
 const Analytics = () => {
 
@@ -49,6 +50,7 @@ const Analytics = () => {
             </div>:<h1>Loading</h1>
             }
         </div>
+        <BottomNav/>
         </>
     );
 }
