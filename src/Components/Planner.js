@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Calendar from 'react-calendar';
-<<<<<<< HEAD
 import { getPlanner, getDaywisePlanner } from '../Api/Api'
-=======
-import { getPlanner } from '../Api/Api'
-import BottomNav from './BottomNav'
->>>>>>> origin/timetable
 import { cardColorTheme } from './ColorTheme'
 import 'react-calendar/dist/Calendar.css';
 import Nav from './Nav'
+import BottomNav from './BottomNav'
 
 const Planner = ( match )=> {
 
@@ -21,6 +17,12 @@ const Planner = ( match )=> {
     },[])
 
     console.log(plannerData)
+
+    // const arrangeTimetable=()=>{
+    //     plannerData&&plannerData.map(x=>{
+    //         x
+    //     })
+    // }
 
     const [date, setDate] = useState(new Date())
     const mark = [
