@@ -39,12 +39,12 @@ const Analytics = () => {
                 }}
                 options={{ }}
             />
-            <h4 style={palette.fontColor}>Strean report</h4>
+            <h4 style={palette.heading}>Strean report</h4>
             <div style={{paddingLeft: '8px'}}>
-                <h6 style={palette.fontColor}>Average: </h6><p style={palette.fontColor}>{rank.analysis.stream.average}</p>
-                <h6 style={palette.fontColor}>Count: </h6><p style={palette.fontColor}>{rank.analysis.stream.count}</p>
-                <h6 style={palette.fontColor}>Max: </h6><p style={palette.fontColor}>{rank.analysis.stream.max}</p>
-                <h6 style={palette.fontColor}>Your rank: </h6><p style={palette.fontColor}>{rank.analysis.stream.rank}</p>
+                <h6 style={palette.heading}>Average: </h6><p style={palette.heading}>{rank.analysis.stream.average}</p>
+                <h6 style={palette.heading}>Count: </h6><p style={palette.heading}>{rank.analysis.stream.count}</p>
+                <h6 style={palette.heading}>Max: </h6><p style={palette.heading}>{rank.analysis.stream.max}</p>
+                <h6 style={palette.heading}>Your rank: </h6><p style={palette.heading}>{rank.analysis.stream.rank}</p>
             </div>
             </div>:<h1>Loading</h1>
             }
