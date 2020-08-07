@@ -8,27 +8,32 @@ import BottomNav from './BottomNav'
 
 const Planner = ( match )=> {
 
-    const [plannerData,setPlannerData]=useState()
+    const [plannerData,setPlannerData]=useState(null)
     useEffect(()=>{
         const getPlanner=async()=>{
             setPlannerData(await getDaywisePlanner(localStorage.getItem('cookie'),"Academic_Planner_2020_21_ODD"))
         }
         getPlanner()
     },[])
+    const months=[`Aug`,`Sep`,`Oct`]
+    let mark = []
+    let tt=[]
+    const arrangeTimetable=()=>{
+        for(let i=0;i<months.length;i++){
+            tt.push(plannerData[i][`${months[i]} '20`][2])
+        }
+        for(let i=0;i<months.length;i++){
+            if(i<2)tt[i].Events.map((x,index)=>x!=""?mark.push(`${index+1}-0${i+8}-2020`):null)
+            else tt[i].Events.map((x,index)=>x!=""?mark.push(`${index+1}-${i+8}-2020`):null)
+        }
+    }
 
-    console.log(plannerData)
+    console.log(tt)
+    console.log(mark)
 
-    // const arrangeTimetable=()=>{
-    //     plannerData&&plannerData.map(x=>{
-    //         x
-    //     })
-    // }
+    if(plannerData!=null)arrangeTimetable()
 
     const [date, setDate] = useState(new Date())
-    const mark = [
-        '3-08-2020',
-        '23-07-2020'
-    ]
 
     const palette = cardColorTheme[localStorage.getItem('theme')]
     return (
@@ -44,6 +49,12 @@ const Planner = ( match )=> {
                 }
             }}
         />
+        <h4><b>Skima</b></h4>
+        <div>
+        {
+            tt.map((x,indexX)=>x.Events.map((y,index)=>y!=""?<h5 key={Math.random()}><b>{index+1} {months[indexX]}:</b> {y}</h5>:<></>))
+        }
+        </div>
         </div>
         <BottomNav/>
         </>

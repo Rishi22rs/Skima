@@ -3,6 +3,7 @@ import '../Styles/landing.css'
 import '../Styles/styles.css'
 import {getCookie} from '../Api/Api'
 import { Redirect } from 'react-router-dom'
+import SpinnerPage from './SpinnerPage'
 
 function Landing() {
 
@@ -49,6 +50,7 @@ function Landing() {
           <div style={{display:'flex'}}><span>&#9821;</span><input type='email' placeholder='Email' onChange={e=>setInput({...input,email:e.target.value})}/></div>
           <div style={{display:'flex'}}><span>&#9797;</span><input style={{marginBottom:20}} type='password' placeholder='Password' onChange={e=>setInput({...input,password:e.target.value})}/></div>
           <button className='btni' type='submit' onClick={e=>getContentData(e)}>Sign In</button>
+          <SpinnerPage />
         </form>
       </div>
     </div>
