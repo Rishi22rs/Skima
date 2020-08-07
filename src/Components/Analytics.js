@@ -12,7 +12,7 @@ const Analytics = () => {
     const[data,setData]=useState()
     useEffect(()=>{
         const getRank=async()=>{
-            setRank(await getRanks("RA1811003010534","A2","Btech","Computer Science and Technology",3.2))
+            setRank(await getRanks(localStorage.getItem('regno'),localStorage.getItem('section'),localStorage.getItem('degree').replace('.','').toLowerCase(),localStorage.getItem('dept'),localStorage.getItem('rate')))
         }
         getRank()
     },[])
