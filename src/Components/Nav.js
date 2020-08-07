@@ -32,7 +32,7 @@ const Nav=({
     return(
         <>
         <Sidenav/>
-        <div className="navbar-fixed" style={{zIndex: 1000}}>
+        <div className="navbar-fixed">
             <nav style={palette.background}>
             <div className="nav-wrapper"  style={palette.heading}>
             <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons" style={palette.heading}>menu</i></a>
