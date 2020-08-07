@@ -55,7 +55,7 @@ const Timetable = (match) => {
             <div className=''>
             <div class="row" style={{margin: 0, paddingBottom: '18px'}}>
                 <div class="col s12">
-                    <ul id="tabs-swipe-demo" class="tabs" style={Object.assign({}, palette.background, {zIndex: 99})}>
+                    <ul id="tabs-swipe-demo" class="tabs" style={Object.assign({}, palette.background, {zIndex: 999})}>
                         <li class="tab col s2"><a href="#test-swipe-1">1</a></li>
                         <li class="tab col s2"><a href="#test2">2</a></li>
                         <li class="tab col s2"><a href="#test3">3</a></li>

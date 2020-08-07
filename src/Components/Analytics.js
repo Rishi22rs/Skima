@@ -21,12 +21,12 @@ const Analytics = () => {
     const palette = cardColorTheme[localStorage.getItem('theme')]
 
     return ( 
-        <>
-        <Nav title="Analytics report" />
-        <div className="main-container" style={Object.assign({}, palette.background, {minHeight: '100vh'})}>
+        <div style={Object.assign({}, palette.background, { minHeight: '100vh' })}>
+        <Nav title="Analytics report"/>
+        <div className="main-container" >
             {rank!==undefined?
-            <div style={{padding: '12px 0 0 12px'}}>
-            <h4 style={palette.heading}>Section wise</h4>
+            <div style={{padding: '12px 18px 8px 18px'}}>
+            <h4 className="center-align" style={palette.heading}>Section Graph</h4>
             <Line
                 data={{
                     labels:rank.analysis.section.ratings,
@@ -40,18 +40,31 @@ const Analytics = () => {
                 }}
                 options={{ }}
             />
-            <h4 style={palette.heading}>Strean report</h4>
-            <div style={{paddingLeft: '8px'}}>
-                <h6 style={palette.heading}>Average: </h6><p style={palette.heading}>{rank.analysis.stream.average}</p>
-                <h6 style={palette.heading}>Count: </h6><p style={palette.heading}>{rank.analysis.stream.count}</p>
-                <h6 style={palette.heading}>Max: </h6><p style={palette.heading}>{rank.analysis.stream.max}</p>
-                <h6 style={palette.heading}>Your rank: </h6><p style={palette.heading}>{rank.analysis.stream.rank}</p>
+            <div className='row'>
+                <div className='col s6 center' style={{borderRight: '1px solid lightblue'}}>
+                    <h4 style={palette.heading}>Stream Report</h4>
+                    <div style={{paddingLeft: '8px'}}>
+                        <h6 style={palette.heading}>Average: </h6><p style={palette.heading}>{rank.analysis.stream.average}</p>
+                        <h6 style={palette.heading}>Count: </h6><p style={palette.heading}>{rank.analysis.stream.count}</p>
+                        <h6 style={palette.heading}>Max: </h6><p style={palette.heading}>{rank.analysis.stream.max}</p>
+                        <h6 style={palette.heading}>Your rank: </h6><p style={palette.heading}>{rank.analysis.stream.rank}</p>
+                    </div>
+                </div>
+                <div className='col s6 center'>
+                    <h4 style={palette.heading}>Section Report</h4>
+                    <div style={{paddingLeft: '8px'}}>
+                        <h6 style={palette.heading}>Average: </h6><p style={palette.heading}>{rank.analysis.section.average}</p>
+                        <h6 style={palette.heading}>Count: </h6><p style={palette.heading}>{rank.analysis.section.count}</p>
+                        <h6 style={palette.heading}>Max: </h6><p style={palette.heading}>{rank.analysis.section.max}</p>
+                        <h6 style={palette.heading}>Your rank: </h6><p style={palette.heading}>{rank.analysis.section.rank}</p>
+                    </div>
+                </div>
             </div>
-            </div>:<h1>Loading</h1>
+            </div>:''
             }
         </div>
         <BottomNav/>
-        </>
+        </div>
     );
 }
  
