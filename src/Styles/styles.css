@@ -2,26 +2,24 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: none;
 }
-/* width */
+ /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #a0a0a0;
-    box-shadow: 0 0 1px black;
-}
-
-/* Handle */
+/* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-    background: #212121;
+    background: #FF0000;
 }
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #919191;
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
 }
 .text{
     position: relative;
