@@ -79,6 +79,7 @@ const Store = ( match ) => {
               <PalettePreview name='Default' palette={paletteStrip['Default']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Default');setTheme('Default')}}/>
               <PalettePreview name='Dark' palette={paletteStrip['Dark']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Dark');setTheme('Dark')}}/>
               <PalettePreview name='Light' palette={paletteStrip['Light']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Light');setTheme('Light')}}/>
+              <PalettePreview name='DarkColorful' palette={paletteStrip['DarkColorful']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'DarkColorful');setTheme('DarkColorful')}}/>
           </div>
           <h4 className="store-head" style={palette.heading}>Preview</h4>
           <div className='row'>

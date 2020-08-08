@@ -12,6 +12,7 @@ export const getCookie= async (email,password)=>{
             password:password
         }
     })
+    if(response.data.error)return response.data.error
     return response.data.Cookie
 }
 

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 import { getGrades } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
 import Nav from './Nav'
@@ -52,7 +54,7 @@ const Grades=( match )=>{
 			{(match.isFragment)?'':<Nav title={`Grades-${isNaN(rating)?'':rating}`} medals={medals}/>}
 			<div className='main-container' style={Object.assign({}, palette.background, {minHeight: '100vh'})}>
 				<div className="row" style={{margin: 0}}>
-					{result&&result.Grades.map((x,key)=>
+					{result?result.Grades.map((x,key)=>
 						<div key={key} className="col s12 m6 l3">
 						<div className="card" style={Object.assign({}, palette.fontColor, x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger)}>
 							<div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
@@ -68,7 +70,12 @@ const Grades=( match )=>{
 							</div>
 						</div>
 						</div>
-					)}
+					):<center><Loader
+					type="ThreeDots"
+					color="black"
+					height={50}
+					width={50}
+				  /></center>}
 					</div>
 				<BottomNav />
 				</div>

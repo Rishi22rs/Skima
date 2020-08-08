@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 import {getContent,getKeys,getCookie} from '../Api/Api'
 import { Link } from 'react-router-dom'
 import {cardColorTheme} from './ColorTheme'
@@ -84,7 +86,12 @@ const Attendance = ( match ) => {
             </div>
           )}
         </div>
-      </div>:<h1>Cookie expired</h1>}
+      </div>:<center><Loader
+              type="ThreeDots"
+              color="black"
+              height={50}
+              width={50}
+            /></center>}
       <BottomNav/>
     </div>
   );
