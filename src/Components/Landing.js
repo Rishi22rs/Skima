@@ -5,7 +5,6 @@ import '../Styles/landing.css'
 import '../Styles/styles.css'
 import {getCookie} from '../Api/Api'
 import { Redirect } from 'react-router-dom'
-import SpinnerPage from './SpinnerPage'
 
 function Landing() {
 

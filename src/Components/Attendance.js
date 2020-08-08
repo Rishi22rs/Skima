@@ -32,8 +32,6 @@ const Attendance = ( match ) => {
     getKey()
   },[])
 
-  if(content)
-    console.log(content)
 
   // if(timetable.length)
   //   localStorage.setItem('batch',timetable[0].Student_Details[2]['Batch:'])

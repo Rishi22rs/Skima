@@ -29,7 +29,6 @@ const Grades=( match )=>{
 		}
 		if(localStorage.getItem('result')!=='K'){
 			getResultData()
-			console.log('i am calling')
 		}
 		else
 			setResult(JSON.parse(localStorage.getItem('result')))

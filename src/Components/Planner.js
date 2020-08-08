@@ -27,9 +27,6 @@ const Planner = ( match )=> {
             else tt[i].Events.map((x,index)=>x!=""?mark.push(`${index+1}-${i+8}-2020`):null)
         }
     }
-
-    console.log(tt)
-    console.log(mark)
     let c = -1;
     const incC = (counter) => {
         c = counter;

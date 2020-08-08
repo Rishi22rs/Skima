@@ -16,8 +16,6 @@ const Analytics = () => {
         }
         getRank()
     },[])
-
-    console.log(rank)
     const palette = cardColorTheme[localStorage.getItem('theme')]
 
     return ( 

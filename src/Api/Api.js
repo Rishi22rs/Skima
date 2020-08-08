@@ -12,7 +12,8 @@ export const getCookie= async (email,password)=>{
             password:password
         }
     })
-    if(response.data.error)return response.data.error
+    localStorage.setItem('email',email)
+    localStorage.setItem('password',password)
     return response.data.Cookie
 }
 
@@ -25,10 +26,33 @@ export const getContent= async (cookie)=>{
             Cookie:cookie
         }
     })
-    localStorage.setItem('regno',response.data[0]['Academic Status'][0]['Registration Number'])
-    localStorage.setItem('degree',response.data[0]['Academic Status'][2]['Program'])
-    localStorage.setItem('dept',response.data[0]['Academic Status'][3]['Department'])
-    return response.data
+    if(response.data.error==="cookie expired"){
+        const response=axios({
+            method: 'post',
+            url: `${path}cookie.php`,
+            headers: {'Content-Type' : 'text/plain'}, 
+            data: {
+                username:localStorage.getItem("email"), 
+                password:localStorage.getItem("password")
+            }
+        }).then(async(res)=>{
+            const responsing=await axios({
+                method: 'post',
+                url: `${path}attendance.php`,
+                headers: {'Content-Type' : 'text/plain'}, 
+                data: {
+                    Cookie:res.data.Cookie
+                }
+            })
+            localStorage.setItem('cookie',res.data.Cookie)
+            window.location.reload(false)
+        })
+    }else{
+        localStorage.setItem('regno',response.data[0]['Academic Status'][0]['Registration Number'])
+        localStorage.setItem('degree',response.data[0]['Academic Status'][2]['Program'])
+        localStorage.setItem('dept',response.data[0]['Academic Status'][3]['Department'])
+        return response.data
+    }
 }
 
 export const getGrades= async (cookie)=>{
