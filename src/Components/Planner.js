@@ -30,6 +30,11 @@ const Planner = ( match )=> {
 
     console.log(tt)
     console.log(mark)
+    let c = -1;
+    const incC = (counter) => {
+        c = counter;
+        return <><br/><h4>{months[counter]}'{new Date().getYear().toString().substr(-2)}</h4></>;
+    }
 
     if(plannerData!=null)arrangeTimetable()
 
@@ -38,23 +43,25 @@ const Planner = ( match )=> {
     const palette = cardColorTheme[localStorage.getItem('theme')]
     return (
         <>
-            {(match.isFragment)?'':<Nav title='Planner'/>}
-            <div className='main-container' style={Object.assign({}, palette.background, palette.heading, {minHeight: '100vh'})}>
-            <Calendar
-            value={date}
-            className='r-calendar white-text'
-            tileClassName={({ date, view }) => {
-                if (mark.find(x => x === (date.getDate() + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear()))) {
-                    return 'mark'
+        {(match.isFragment)?'':<Nav title='Planner'/>}
+        <div className='main-container' style={Object.assign({}, palette.background, palette.heading, {minHeight: '100vh'})}>
+            <div style={{padding: '0 18px 60px 18px'}}>
+                <Calendar
+                    value={date}
+                    className='r-calendar white-text'
+                    tileClassName={({ date, view }) => {
+                        if (mark.find(x => x === (date.getDate() + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear()))) {
+                            return 'mark'
+                        }
+                    }}
+                />
+                {/* <h4><b>Skima</b></h4> */}
+                <div>
+                {
+                    tt.map((x,indexX)=>x.Events.map((y,index)=>y!=""?<h5 key={Math.random()}><b>{(indexX != c)?incC(indexX):''} {index+1} {months[indexX]}:</b> {y}</h5>:<></>))
                 }
-            }}
-        />
-        <h4><b>Skima</b></h4>
-        <div>
-        {
-            tt.map((x,indexX)=>x.Events.map((y,index)=>y!=""?<h5 key={Math.random()}><b>{index+1} {months[indexX]}:</b> {y}</h5>:<></>))
-        }
-        </div>
+                </div>
+            </div>
         </div>
         <BottomNav/>
         </>

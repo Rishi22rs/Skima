@@ -367,7 +367,7 @@
 
 .mark {
     color: white !important;
-    background-color: orange !important;
+    border-bottom: 1px solid rgba(90, 199, 226, 0.7) !important;
 }
 
 abbr{
@@ -391,10 +391,19 @@ abbr{
     color: inherit !important;
 }
 .react-calendar__month-view__days__day--weekend{
-    color: #ffb74d !important;
+    color: #ddaa5c !important;
 }
 .react-calendar__navigation__arrow{
     color: inherit;
+}
+.react-calendar__tile--active{
+    background-color: rgba(153, 123, 130, 0.192) !important;
+}
+.react-calendar__tile:hover{
+    background-color: rgba(122, 211, 223, 0.486) !important;
+}
+.react-calendar__tile--now{
+    background-color: none !important;
 }
 .tabs-a{
     position: fixed;
