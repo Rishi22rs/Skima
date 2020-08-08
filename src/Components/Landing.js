@@ -27,7 +27,7 @@ function Landing() {
       localStorage.setItem('theme','Default')
     }
     setCookie(localStorage.getItem('cookie'))
-    if(cookie==="Account doesn't exit")
+    if(cookie==="Account doesn't exit"||cookie==="Incorrect Password")
       setErr("Wrong credentials please try again after 20 seconds.")
   },[err,cookie])
 
@@ -40,7 +40,7 @@ function Landing() {
     },20000)
     setCookie(await getCookie(input.email,input.password))
   }
-  if(cookie!==undefined&&cookie!==null&&cookie!=="Account doesn't exit"){
+  if(cookie!==undefined&&cookie!==null&&cookie!=="Account doesn't exit"&&cookie!=="Incorrect Password"){
     localStorage.setItem('cookie',cookie)
     return <Redirect to={`/HeyWasup/attendance`} />
   }

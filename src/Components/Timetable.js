@@ -21,6 +21,11 @@ const Timetable = (match) => {
         if(localStorage.getItem('day')==='No Day Order')setShift(-window.innerWidth*5+44)
         else setShift(-window.innerWidth*(parseInt(localStorage.getItem('day'))-1)+(10*(parseInt(localStorage.getItem('day'))-1.5)))
     },[])
+
+    const isActive = (dayOrder) => {
+        return (localStorage.getItem('day') == dayOrder)?"active":""
+    }
+
     const arrageTimetable=()=>{
         let timeIndex=0
         let timetable=[]
@@ -58,15 +63,15 @@ const Timetable = (match) => {
         {(match.isFragment)?'':<Nav title='Timetable'/>}
         <div className='main-container' style={palette.background}>
             <div className=''>
-            <div className="row" style={{margin: 0, paddingBottom: '18px'}}>
-                <div className="col s12">
-                    <ul id="tabs-swipe-demo" className="tabs" style={Object.assign({}, palette.background, {zIndex: 99})}>
-                        <li className="tab col s2"><a href="#test-swipe-1">1</a></li>
-                        <li className="tab col s2"><a href="#test2">2</a></li>
-                        <li className="tab col s2"><a href="#test3">3</a></li>
-                        <li className="tab col s2"><a href="#test4">4</a></li>
-                        <li className="tab col s2"><a href="#test5">5</a></li>
-                        <li className="tab col s2"><a href="#test6">6</a></li>
+            <div class="row" style={{margin: 0, paddingBottom: '18px'}}>
+                <div class="col s12">
+                    <ul id="tabs-swipe-demo" class="tabs" style={Object.assign({}, palette.background, {zIndex: 99})}>
+                        <li class="tab col s2"><a className={isActive(1)} href="#test-swipe-1">1</a></li>
+                        <li class="tab col s2"><a className={isActive(2)} href="#test2">2</a></li>
+                        <li class="tab col s2"><a className={isActive(3)} href="#test3">3</a></li>
+                        <li class="tab col s2"><a className={isActive(4)} href="#test4">4</a></li>
+                        <li class="tab col s2"><a className={isActive(5)} href="#test5">5</a></li>
+                        <li class="tab col s2"><a className={isActive(6)} href="#test6">6</a></li>
                     </ul>
                 </div>
                 <div id="test-swipe-1" className="col s12">
