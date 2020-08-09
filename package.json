@@ -15,6 +15,7 @@
     "react-chartjs-2": "^2.9.0",
     "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.13.1",
+    "react-ga": "^3.1.2",
     "react-loader-spinner": "^3.1.14",
     "react-materialize": "^3.9.2",
     "react-move": "^6.4.0",

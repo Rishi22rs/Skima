@@ -5,6 +5,7 @@ import '../Styles/landing.css'
 import '../Styles/styles.css'
 import {getCookie} from '../Api/Api'
 import { Redirect } from 'react-router-dom'
+import ReactGA from 'react-ga'
 
 function Landing() {
 
@@ -22,6 +23,8 @@ function Landing() {
 	const [cookie,setCookie]=useState()
 
   useEffect(()=>{
+    ReactGA.initialize('UA-175012236-1')
+    ReactGA.pageview(window.location.pathname + window.location.search)
     if(localStorage.getItem('theme')===null){
       localStorage.setItem('theme','Default')
     }
