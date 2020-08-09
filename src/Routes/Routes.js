@@ -7,8 +7,15 @@ import Store from '../Components/Store'
 import Planner from '../Components/Planner'
 import Analytics from '../Components/Analytics'
 import Attendance from '../Components/Attendance'
+import ReactGA from 'react-ga'
 
-const Routes=()=>(
+const Routes=()=>{
+
+    useEffect(()=>{
+        ReactGA.initialize('UA-175012236-1')
+        ReactGA.pageview(window.location.pathname + window.location.search)
+    })
+    return(
     <Router>
         <Switch>
             <Route path='/' exact component={Landing}/>
@@ -35,6 +42,7 @@ const Routes=()=>(
             <Route path='/HeyWasup/analytics' exact component={Analytics} />
         </Switch>
     </Router>
-)
+    )
+}
 
 export default Routes

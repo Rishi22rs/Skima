@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
-import {getContent,getKeys,getCookie} from '../Api/Api'
+import {getContent,getKeys,getCookie,getGrades} from '../Api/Api'
 import { Link } from 'react-router-dom'
 import {cardColorTheme} from './ColorTheme'
 import { Progress } from 'react-sweet-progress'
@@ -14,6 +14,18 @@ const Attendance = ( match ) => {
 
   const [content,setContent]=useState()
   const [styles,setStyles]=useState({transform:0})
+  const [result,setResult]=useState()
+  const grades = []
+
+  const getRating=(grades)=> {
+		let gradeArr = ["F", "C", "C+", "B", "B+", "A", "A+", "O"];
+		let maxScore = 7 * grades.length
+		const scoreArr = grades.map(grade => gradeArr.indexOf(grade));
+		var sum = scoreArr.reduce(function (a, b) {
+			return a + b;
+		}, 0);
+		return (sum / maxScore * 5).toFixed(1)
+	}
 
   //test feature
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
@@ -30,8 +42,16 @@ const Attendance = ( match ) => {
       await getKeys(cookie)
     }
     getKey()
+    const getGrade=async()=>{
+      setResult(await getGrades(cookie))
+    }
+    getGrade()
   },[])
 
+  result&&result.Grades.map((x) => grades.push(x["Grade"]))
+  const rating = getRating(grades)
+  
+  localStorage.setItem('rate',rating)
 
   // if(timetable.length)
   //   localStorage.setItem('batch',timetable[0].Student_Details[2]['Batch:'])
