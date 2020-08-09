@@ -26,8 +26,9 @@ function Landing() {
       localStorage.setItem('theme','Default')
     }
     setCookie(localStorage.getItem('cookie'))
-    if(cookie==="Account doesn't exit"||cookie==="Incorrect Password")
+    if(cookie==="Account doesn't exit"||cookie==="Incorrect Password"){
       setErr("Wrong credentials please try again after 20 seconds.")
+    }
   },[err,cookie])
 
   const getContentData = async(e)=>{
@@ -56,6 +57,7 @@ function Landing() {
       </div>
       <div className="form-containeri" style={{top:`${styles.top}%`}}>
         <form className="formi">
+          <p style={{marginBottom:30}}>Login with your academia credentials</p>
           <div style={{display:'flex'}}><span>&#9821;</span><input type='email' placeholder='Email' onChange={e=>setInput({...input,email:e.target.value})}/></div>
           <div style={{display:'flex'}}><span>&#9797;</span><input style={{marginBottom:20}} type='password' placeholder='Password' onChange={e=>setInput({...input,password:e.target.value})}/></div>
             <button className='btni' disabled={isClicked} type='submit' onClick={e=>getContentData(e)}>{isClicked?<Loader
