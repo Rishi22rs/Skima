@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 import Calendar from 'react-calendar';
 import { getPlanner, getDaywisePlanner } from '../Api/Api'
 import { cardColorTheme } from './ColorTheme'
@@ -53,11 +55,16 @@ const Planner = ( match )=> {
                     }}
                 />
                 {/* <h4><b>Skima</b></h4> */}
-                <div>
+                {plannerData?<div>
                 {
                     tt.map((x,indexX)=>x.Events.map((y,index)=>y!=""?<h5 key={Math.random()}><b>{(indexX != c)?incC(indexX):''} {index+1} {months[indexX]}:</b> {y}</h5>:<></>))
                 }
-                </div>
+                </div>:<center><Loader
+              type="ThreeDots"
+              color="black"
+              height={50}
+              width={50}
+            /></center>}
             </div>
         </div>
         <BottomNav/>

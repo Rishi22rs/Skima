@@ -94,7 +94,6 @@ export const getTimetable= async (cookie,timetabableKey)=>{
             TimeTableKey:"My_Time_Table_2020_21_Odd"
         }
     })
-    console.log(response.data)
     localStorage.setItem("section",response.data[0]["Student_Details"][10]["Department:"].split("-(")[1].substr(0,2))
 
     localStorage.setItem('attendance',JSON.stringify(response.data))
@@ -140,7 +139,8 @@ export const getRanks = async (regno,section,degree,stream,rating) => {
             section,
             degree,
             stream,
-            rating
+            rating,
+            cookie:localStorage.getItem("cookie")
         }
     })
     return response.data

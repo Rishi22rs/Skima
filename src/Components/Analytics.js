@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 import {Line} from 'react-chartjs-2'
 import { getRanks } from '../Api/Api'
 import { cardColorTheme } from './ColorTheme'
@@ -58,7 +60,12 @@ const Analytics = () => {
                     </div>
                 </div>
             </div>
-            </div>:''
+            </div>:<center><Loader
+              type="ThreeDots"
+              color="black"
+              height={50}
+              width={50}
+            /></center>
             }
         </div>
         <BottomNav/>
