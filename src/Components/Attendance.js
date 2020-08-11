@@ -74,7 +74,7 @@ const Attendance = ( match ) => {
                     <div className='col s3 center' style={palette.fontColor}><span>Conducted</span><br/><span>{parseInt(x['Hours Conducted'])}</span></div>
                     <div className='col s3 center' style={palette.fontColor}><span>Present </span><br/><span>{parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])}</span></div>
                     <div className='col s2 center' style={palette.fontColor}><span>Absent</span><br/><span>{x['Hours Absent']}</span></div>
-                    <div className='col s2 center' style={palette.fontColor}><span className='bold'>Bunk</span><br/><span>{Math.floor((parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])) - parseInt(x['Hours Conducted'])*0.75)}</span></div>
+                    <div className='col s2 center' style={palette.fontColor}><span className='bold'>Bunk</span><br/><span>{(parseInt(x['Hours Conducted']) - parseInt(x['Hours Absent'])) - parseInt(x['Hours Conducted'])*0.75}</span></div>
                     <div className='col s2 center' style={palette.fontColor}><span>{x["Room No"]}</span><br/><span className='hide-on-med-and-up'>-</span></div>
                   </div>
                   <div className='row' style={{marginBottom: '0'}}>

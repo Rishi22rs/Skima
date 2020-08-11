@@ -49,6 +49,7 @@ const Grades=( match )=>{
 
 	localStorage.setItem('rate',rating)
 	return(
+		
 		<>
 			{(match.isFragment)?'':<Nav title={`Grades-${isNaN(rating)?'':rating}`} medals={medals}/>}
 			<div className='main-container' style={Object.assign({}, palette.background, {minHeight: '100vh'})}>

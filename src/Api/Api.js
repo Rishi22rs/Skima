@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const path='https://srmacademia20.000webhostapp.com/' 
+const path='https://skima-ml.preview-domain.com/' 
 
 export const getCookie= async (email,password)=>{
     const response=await axios({
@@ -15,7 +15,7 @@ export const getCookie= async (email,password)=>{
     localStorage.setItem('email',email)
     localStorage.setItem('password',password)
     if(response.data.hasOwnProperty("error")) return response.data.error
-    return response.data.Cookie
+    return response.data.cookie
 }
 
 export const getContent= async (cookie)=>{
@@ -42,10 +42,10 @@ export const getContent= async (cookie)=>{
                 url: `${path}attendance.php`,
                 headers: {'Content-Type' : 'text/plain'}, 
                 data: {
-                    Cookie:res.data.Cookie
+                    Cookie:res.data.cookie
                 }
             })
-            localStorage.setItem('cookie',res.data.Cookie)
+            localStorage.setItem('cookie',res.data.cookie)
             window.location.reload(false)
         })
     }else{
@@ -77,6 +77,8 @@ export const getKeys= async (cookie)=>{
             Cookie:cookie
         }
     }).then(res=>{
+        console.log(res.data)
+        localStorage.setItem('isGrades',res.data.Keys.isGrades)
         localStorage.setItem('day',res.data.Keys.DayOrder)
         localStorage.setItem('key',res.data.Keys.TimeTableKey)
         localStorage.setItem('academicPlannerKey',res.data.Keys.AcademicPlannerKey)
