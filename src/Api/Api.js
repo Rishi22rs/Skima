@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const path = "https://srmacademia21.000webhostapp.com/";
+const path = "https://badabusinesspvtltd.com/skima/";
 
 export const getCookie = async (email, password) => {
   const response = await axios({
@@ -90,6 +90,7 @@ export const getKeys = async (cookie) => {
     localStorage.setItem("isGrades", res.data.Keys.isGrades);
     localStorage.setItem("day", res.data.Keys.DayOrder);
     localStorage.setItem("key", res.data.Keys.TimeTableKey);
+    localStorage.setItem("scheduleKey", res.data.Keys.ScheduleKey);
     localStorage.setItem(
       "academicPlannerKey",
       res.data.Keys.AcademicPlannerKey
@@ -108,15 +109,20 @@ export const getTimetable = async (cookie, timetabableKey) => {
     headers: { "Content-Type": "text/plain" },
     data: {
       Cookie: cookie,
-      TimeTableKey: "My_Time_Table_2020_21_Odd",
+      TimeTableKey: "My_Time_Table_2020_21_22",
     },
   });
   localStorage.setItem(
     "section",
-    response.data[0]["Student_Details"][10]["Department:"]
+    response.data[0]["Student_Details"][9]["Department:"]
       .split("-(")[1]
       .substr(0, 2)
   );
+  localStorage.setItem(
+    "batch",
+    response.data[0]["Student_Details"][2]["Batch:"]
+  );
+  console.log("response",response)
 
   localStorage.setItem("attendance", JSON.stringify(response.data));
   return response.data;
@@ -130,7 +136,8 @@ export const getSchedule = async (cookie, scheduleKey) => {
     headers: { "Content-Type": "text/plain" },
     data: {
       Cookie: cookie,
-      ScheduleKey: `Virtual_Class_Time_Table`,
+      ScheduleKey: localStorage.getItem("scheduleKey"),
+      Batch:localStorage.getItem("batch")
     },
   });
   return response.data;
