@@ -30,22 +30,22 @@ const Store = ( match ) => {
         color: '#FFFFFF'
       }, {
         backgroundColor: '#B5EAEA',
-        color: '#FFFFFF'
+        color: '#000000'
       }, {
         backgroundColor: '#FFBCBC',
         color: '#000000'
       }],
       PastelDark: [{
-        backgroundColor: '#FFFFFF',
-        color: '#000000'
-      }, {
-        backgroundColor: '#000000',
+        backgroundColor: '#726A95',
         color: '#FFFFFF'
       }, {
-        backgroundColor: '#B5EAEA',
+        backgroundColor: '#726A95',
         color: '#FFFFFF'
       }, {
-        backgroundColor: '#FFBCBC',
+        backgroundColor: '#709FB0',
+        color: '#FFFFFF'
+      }, {
+        backgroundColor: '#A0C1B8',
         color: '#000000'
       }],
       Light: [{
