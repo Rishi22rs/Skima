@@ -1,6 +1,37 @@
 export const cardColorTheme = {
   Default: {
     background: {
+      backgroundColor: "#FFFFFF"
+    },
+    heading: {
+      color: "#000000"
+    },
+    fontColor: {
+      color: "#212121"
+    },
+    danger: {
+      backgroundColor: "#ffebee"
+    },
+    warning: {
+      backgroundColor: "#FFEBEE",
+    },
+    safe: {
+      backgroundColor: "#FFFFFF"
+    },
+    safest: {
+      backgroundColor: "#FFFFFF"
+    },
+    frontCard: {
+      boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+      transition: "all 0.3s cubic-bezier(.25,.8,.25,1)"
+    },
+    bottomNav: {
+      boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+      transition: "all 0.3s cubic-bezier(.25,.8,.25,1)"
+    }
+  },
+  Colorful: {
+    background: {
         backgroundColor: "#FFFFFF"
       },
       heading:{

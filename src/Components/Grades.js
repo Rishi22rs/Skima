@@ -51,12 +51,12 @@ const Grades=( match )=>{
 	return(
 		
 		<>
-			{(match.isFragment)?'':<Nav title={`grades-${isNaN(rating)?'':rating}`} medals={medals}/>}
+			{(match.isFragment)?'':<Nav title={`Grades-${isNaN(rating)?'':rating}`} medals={medals}/>}
 			<div className='main-container' style={Object.assign({}, palette.background, {minHeight: '100vh'})}>
 				<div className="row" style={{margin: 0}}>
 					{result?result.Grades.map((x,key)=>
 						<div key={key} className="col s12 m6 l3">
-						<div className="card" style={Object.assign({}, palette.fontColor, x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger)}>
+						<div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger)}>
 							<div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
 							<h5 className="center-align truncate">{x['Course Title']}</h5>
 							</div>
