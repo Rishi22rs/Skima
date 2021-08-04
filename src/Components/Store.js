@@ -19,21 +19,21 @@ const Store = ( match ) => {
           backgroundColor: '#121212',
           color: '#FFFFFF'
       }, {
-          backgroundColor: '#313131',
-          color: '#FFFFFF'
+          backgroundColor: '#FFEBEE',
+          color: '#000000'
       }],
       Dark: [{
-          backgroundColor: '#FFFFFF',
-          color: '#000000'
-      }, {
-          backgroundColor: '#212121',
+          backgroundColor: '#121212',
           color: '#FFFFFF'
       }, {
           backgroundColor: '#FFFFFF',
           color: '#000000'
       }, {
-          backgroundColor: '#EEEEEE',
-          color: '#000000'
+          backgroundColor: '#121212',
+          color: '#FFFFFF'
+      }, {
+          backgroundColor: '#313131',
+          color: '#FFFFFF'
       }],
       Light: [{
           backgroundColor: '#121212',
@@ -45,20 +45,20 @@ const Store = ( match ) => {
           backgroundColor: '#121212',
           color: '#FFFFFF'
       }, {
-          backgroundColor: '#313131',
-          color: '#FFFFFF'
+          backgroundColor: '#FFEBEE',
+          color: '#000000'
       }],
       Colorful: [{
           backgroundColor: '#FFFFFF',
           color: 'black'
       }, {
-          backgroundColor: '#FFFFFF',
-          color: '#000000'
-      }, {
-          backgroundColor: '#121212',
+          backgroundColor: '#000000',
           color: '#FFFFFF'
       }, {
-          backgroundColor: '#313131',
+          backgroundImage: "linear-gradient(to bottom right,#7B00C7,#2DCCFB)",
+          color: '#FFFFFF'
+      }, {
+          backgroundImage: "linear-gradient(to bottom right,#FF5A15,#FFDD17)",
           color: '#FFFFFF'
       }],
       DarkColorful: [{
@@ -68,10 +68,10 @@ const Store = ( match ) => {
           backgroundColor: 'white',
           color: 'black'
       }, {
-          backgroundColor: '#121212',
+          backgroundImage: "linear-gradient(to bottom right,#7B00C7,#2DCCFB)",
           color: '#FFFFFF'
       }, {
-          backgroundColor: '#313131',
+          backgroundImage: "linear-gradient(to bottom right,#FF5A15,#FFDD17)",
           color: '#FFFFFF'
       }],
       
