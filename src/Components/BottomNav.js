@@ -18,7 +18,7 @@ const BottomNav = () => {
     }
     return (
         <>
-            <ul className="tabs tabs-a hide-on-med-and-up" style={Object(palette.background, palette.heading)}>
+        <ul className="tabs tabs-a hide-on-med-and-up" style={Object.assign({}, palette.background, palette.heading, palette.bottomNav)}>
                 <Link onClick={clearTab} to="/HeyWasup/timetable" style={{paddingTop: '6px'}} className='tab'><i className="material-icons" style={Object.assign(palette.heading)}>schedule</i></Link>
                 <Link onClick={clearTab} to="/HeyWasup/attendance" style={{paddingTop: '6px'}} className='tab active'><i className="material-icons" style={Object.assign(palette.heading)}>perm_identity</i></Link>
                 <li className='tab hide'><Link onClick={clearTab} to="/HeyWasup/attendance" style={{paddingTop: '6px'}}><i className="material-icons" style={Object.assign(palette.heading)}>perm_identity</i></Link></li>
