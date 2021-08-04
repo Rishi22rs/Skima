@@ -107,7 +107,7 @@ const Timetable = (match) => {
                     {arrangedTimetable.length>0&&arrangedTimetable[0].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
                         <div key={key}>
-                            <div className="card" style={palette.safest}>
+                            <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
                                 <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
                                     <h5 className="center-align truncate">{x['Course Title']}</h5>  
                                 </div>
@@ -127,7 +127,7 @@ const Timetable = (match) => {
                     {arrangedTimetable.length>0&&arrangedTimetable[1].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
                         <div key={key}>
-                            <div className="card" style={palette.safest}>
+                            <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
                                 <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
                                     <h5 className="center-align truncate">{x['Course Title']}</h5>  
                                 </div>
@@ -147,7 +147,7 @@ const Timetable = (match) => {
                     {arrangedTimetable.length>0&&arrangedTimetable[2].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
                         <div key={key}>
-                            <div className="card" style={palette.safest}>
+                            <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
                                 <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
                                     <h5 className="center-align truncate">{x['Course Title']}</h5>  
                                 </div>
@@ -167,7 +167,7 @@ const Timetable = (match) => {
                     {arrangedTimetable.length>0&&arrangedTimetable[3].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
                         <div key={key}>
-                            <div className="card" style={palette.safest}>
+                            <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
                                 <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
                                     <h5 className="center-align truncate">{x['Course Title']}</h5>  
                                 </div>
@@ -187,7 +187,7 @@ const Timetable = (match) => {
                         {arrangedTimetable.length>0&&arrangedTimetable[4].map((x,key)=>
                         <div className="row" style={{margin: 0}}>
                             <div key={key}>
-                                <div className="card" style={palette.safest}>
+                                <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
                                     <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
                                         <h5 className="center-align truncate">{x['Course Title']}</h5>  
                                     </div>
@@ -206,7 +206,7 @@ const Timetable = (match) => {
                         {arrangedTimetable.length>0&&arrangedTimetable[5].map((x,key)=>
                         <div className="row" style={{margin: 0}}>
                             <div key={key}>
-                                <div className="card" style={palette.safest}>
+                                <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
                                     <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
                                         <h5 className="center-align truncate">{x['Course Title']}</h5>  
                                     </div>

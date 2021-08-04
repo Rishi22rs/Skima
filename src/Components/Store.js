@@ -19,23 +19,49 @@ const Store = ( match ) => {
           backgroundColor: '#121212',
           color: '#FFFFFF'
       }, {
-          backgroundColor: '#313131',
-          color: '#FFFFFF'
+          backgroundColor: '#FFEBEE',
+          color: '#000000'
       }],
-      Dark: [{
-          backgroundColor: '#FFFFFF',
-          color: '#000000'
+      Pastel: [{
+        backgroundColor: '#FFFFFF',
+        color: '#000000'
       }, {
-          backgroundColor: '#212121',
-          color: '#FFFFFF'
+        backgroundColor: '#000000',
+        color: '#FFFFFF'
       }, {
-          backgroundColor: '#FFFFFF',
-          color: '#000000'
+        backgroundColor: '#B5EAEA',
+        color: '#000000'
       }, {
-          backgroundColor: '#EEEEEE',
-          color: '#000000'
+        backgroundColor: '#FFBCBC',
+        color: '#000000'
+      }],
+      PastelDark: [{
+        backgroundColor: '#726A95',
+        color: '#FFFFFF'
+      }, {
+        backgroundColor: '#726A95',
+        color: '#FFFFFF'
+      }, {
+        backgroundColor: '#709FB0',
+        color: '#FFFFFF'
+      }, {
+        backgroundColor: '#A0C1B8',
+        color: '#000000'
       }],
       Light: [{
+        backgroundColor: '#FFFFFF',
+        color: '#000000'
+      }, {
+        backgroundColor: '#000000',
+        color: '#FFFFFF'
+      }, {
+        backgroundColor: '#121212',
+        color: '#FFFFFF'
+      }, {
+        backgroundColor: '#FFEBEE',
+        color: '#000000'
+      }],
+      Dark: [{
           backgroundColor: '#121212',
           color: '#FFFFFF'
       }, {
@@ -48,17 +74,30 @@ const Store = ( match ) => {
           backgroundColor: '#313131',
           color: '#FFFFFF'
       }],
-      DarkColorful: [{
+      Colorful: [{
+          backgroundColor: '#FFFFFF',
+          color: 'black'
+      }, {
+          backgroundColor: '#000000',
+          color: '#FFFFFF'
+      }, {
+          backgroundImage: "linear-gradient(to bottom right,#7B00C7,#2DCCFB)",
+          color: '#FFFFFF'
+      }, {
+          backgroundImage: "linear-gradient(to bottom right,#FF5A15,#FFDD17)",
+          color: '#FFFFFF'
+      }],
+      ColorfulDark: [{
         backgroundColor: '#150C29',
         color: '#FFFFFF'
       }, {
           backgroundColor: 'white',
           color: 'black'
       }, {
-          backgroundColor: '#121212',
+          backgroundImage: "linear-gradient(to bottom right,#7B00C7,#2DCCFB)",
           color: '#FFFFFF'
       }, {
-          backgroundColor: '#313131',
+          backgroundImage: "linear-gradient(to bottom right,#FF5A15,#FFDD17)",
           color: '#FFFFFF'
       }],
       
@@ -77,9 +116,12 @@ const Store = ( match ) => {
           <h4 className="store-head" style={palette.heading}>Customize with themes</h4>
           <div className='row'>
               <PalettePreview name='Default' palette={paletteStrip['Default']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Default');setTheme('Default')}}/>
-              <PalettePreview name='Dark' palette={paletteStrip['Dark']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Dark');setTheme('Dark')}}/>
               <PalettePreview name='Light' palette={paletteStrip['Light']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Light');setTheme('Light')}}/>
-              <PalettePreview name='DarkColorful' palette={paletteStrip['DarkColorful']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'DarkColorful');setTheme('DarkColorful')}}/>
+              <PalettePreview name='Dark' palette={paletteStrip['Dark']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Dark');setTheme('Dark')}}/>
+              <PalettePreview name='Pastel' palette={paletteStrip['Pastel']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Pastel');setTheme('Pastel')}}/>
+              <PalettePreview name='PastelDark' palette={paletteStrip['PastelDark']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'PastelDark');setTheme('PastelDark')}}/>
+              <PalettePreview name='Colorful' palette={paletteStrip['Colorful']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'Colorful');setTheme('Colorful')}}/>
+              <PalettePreview name='ColorfulDark' palette={paletteStrip['ColorfulDark']} selected={active} hasSelected={(selection)=>{setActive(selection); localStorage.setItem('theme', 'ColorfulDark');setTheme('ColorfulDark')}}/>
           </div>
           <h4 className="store-head" style={palette.heading}>Preview</h4>
           <div className='row'>

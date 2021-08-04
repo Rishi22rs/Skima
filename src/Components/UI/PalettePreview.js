@@ -7,7 +7,7 @@ const PalettePreview = (props) => {
 
 const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
-        <div className='theme-preview-card-c col s4 m4 l3' onClick={()=>props.hasSelected(props.name)}>
+        <div className='theme-preview-card-c col s4 m4 l3'  style={{marginBottom: '12px'}} onClick={()=>props.hasSelected(props.name)}>
             <div className='theme-preview-card' style={palette.frontCard}>
                 <div className='palette-preview-c'>
                     <div className='palette-preview' style={props.palette[0]}>Background</div>
