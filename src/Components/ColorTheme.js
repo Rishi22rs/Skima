@@ -30,6 +30,68 @@ export const cardColorTheme = {
       transition: "all 0.3s cubic-bezier(.25,.8,.25,1)"
     }
   },
+  Pastel: {
+    background: {
+      backgroundColor: "#FFFFFF"
+    },
+    heading: {
+      color: "#000000"
+    },
+    fontColor: {
+      color: "#212121"
+    },
+    danger: {
+      backgroundColor: "#FFBCBC"
+    },
+    warning: {
+      backgroundColor: "#FFBCBC",
+    },
+    safe: {
+      backgroundColor: "#B5EAEA"
+    },
+    safest: {
+      backgroundColor: "#B5EAEA"
+    },
+    frontCard: {
+      boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+      transition: "all 0.3s cubic-bezier(.25,.8,.25,1)"
+    },
+    bottomNav: {
+      boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+      transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+    }
+  },
+  PastelDark: {
+    background: {
+      backgroundColor: "#726A95"
+    },
+    heading: {
+      color: "#F4EBC1"
+    },
+    fontColor: {
+      color: "#726A95"
+    },
+    danger: {
+      backgroundColor: "#A0C1B8"
+    },
+    warning: {
+      backgroundColor: "#A0C1B8",
+    },
+    safe: {
+      backgroundColor: "#709FB0"
+    },
+    safest: {
+      backgroundColor: "#709FB0"
+    },
+    frontCard: {
+      boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+      transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+    },
+    bottomNav: {
+      boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+      transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
+    }
+  },
   Colorful: {
     background: {
         backgroundColor: "#FFFFFF"
@@ -108,7 +170,7 @@ export const cardColorTheme = {
       borderBottom: "1px solid #EEEEEE"
     }
   },
-  DarkColorful:{
+  ColorfulDark:{
     background: {
       backgroundColor: "#150C29"
     },
