@@ -58,7 +58,7 @@ const Attendance = ( match ) => {
 
   const palette = cardColorTheme[localStorage.getItem('theme')]
   return (
-    <div style={Object.assign({},palette.background, {minHeight: '100vh'})}>
+    <div className="main-container" style={Object.assign({},palette.background, {minHeight: '100vh'})}>
       {(match.isFragment)?'':<Nav title='Attendance'/>}
       {content&&content[0]?<div className='main-container' style={Object.assign({}, {paddingBottom: '18px'})}>
         <div className="row" style={{margin: '0'}}>

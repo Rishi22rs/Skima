@@ -1,9 +1,12 @@
 body {
   margin: 0;
-  padding-bottom: 28px;
   font-family: 'Oswald', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+  padding-bottom: 32px;
 }
 
 code {
