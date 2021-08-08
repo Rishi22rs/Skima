@@ -19,6 +19,8 @@ const Analytics = () => {
         getRank()
     },[])
     const palette = cardColorTheme[localStorage.getItem('theme')]
+    // Chart.defaults.global.defaultFontColor = 'red';
+
 
     return ( 
         <div style={Object.assign({}, palette.background, { minHeight: '100vh' })}>
@@ -30,18 +32,40 @@ const Analytics = () => {
             <Line
                 data={{
                     labels:rank.analysis.section.ratings,
+                    color: palette.fontColor.color,
                     datasets:[
                         {
                             label:"Rating",
                             data:rank.analysis.section.ratings,
-                            backgroundColor:'rgba(23,67,88,0.5)'
+                            borderColor: palette.fontColor.color,
+                            backgroundColor: palette.fontColor.color,
+                            fill: false,
                         }
                     ],  
                 }}
-                options={{ }}
+                options={{
+                    legend: {
+                            labels: {
+                                fontColor: palette.heading.color,
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    fontColor: palette.fontColor.color,
+                                },
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: palette.fontColor.color,
+                                },
+                            }]
+                        }
+                }}
             />
+            <br/><br/>
             <div className='row'>
-                <div className='col s6 center' style={{borderRight: '1px solid lightblue'}}>
+                <div className='col s6 center' style={{borderRight: `1px solid ${palette.fontColor.color}`}}>
                     <h4 style={palette.heading}>Stream Report</h4>
                     <div style={{paddingLeft: '8px'}}>
                         <h6 style={palette.heading}>Average: </h6><p style={palette.heading}>{rank.analysis.stream.average}</p>
