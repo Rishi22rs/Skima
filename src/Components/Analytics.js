@@ -37,7 +37,7 @@ const Analytics = () => {
                         {
                             label:"Rating",
                             data:rank.analysis.section.ratings,
-                            borderColor: palette.fontColor.color,
+                            borderColor: palette.heading.color,
                             backgroundColor: palette.fontColor.color,
                             fill: false,
                         }
