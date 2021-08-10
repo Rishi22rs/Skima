@@ -6,6 +6,7 @@ import { getRanks } from '../Api/Api'
 import { cardColorTheme } from './ColorTheme'
 import Nav from './Nav'
 import BottomNav from './BottomNav'
+import LoaderIcon from './UI/LoaderIcon'
 
 const Analytics = () => {
 
@@ -84,12 +85,7 @@ const Analytics = () => {
                     </div>
                 </div>
             </div>
-            </div>:<center><Loader
-              type="ThreeDots"
-              color="black"
-              height={50}
-              width={50}
-            /></center>
+            </div>:<LoaderIcon />
             }
         </div>
         <BottomNav/>

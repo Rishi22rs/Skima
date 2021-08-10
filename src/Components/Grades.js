@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import Loader from 'react-loader-spinner'
 import { getGrades } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
 import Nav from './Nav'
 import BottomNav from './BottomNav'
+import GradeCard from './UI/GradeCard'
+import LoaderIcon from './UI/LoaderIcon'
 
 const Grades=( match )=>{
-
 	if(localStorage.getItem('theme') === null)localStorage.setItem('theme', 'Default')
 	const [result,setResult]=useState()
 	const grades = []
@@ -55,27 +55,8 @@ const Grades=( match )=>{
 			<div className='main-container' style={Object.assign({}, palette.background, {minHeight: '100vh'})}>
 				<div className="row" style={{margin: 0}}>
 					{result?result.Grades.map((x,key)=>
-						<div key={key} className="col s12 m6 l3">
-						<div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, x['Grade']==='O'?palette.safest:x['Grade']==='A+'||x['Grade']==='A'?palette.safe:x['Grade']==='B+'||x['Grade']==='B'?palette.warning:palette.danger)}>
-							<div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
-							<h5 className="center-align truncate">{x['Course Title']}</h5>
-							</div>
-							<div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
-							<div className='row'>
-								<div className='col s3 center' style={palette.fontColor}><span>Semester </span><br/><span>{x.Sem}</span></div>
-								<div className='col s3 center' style={palette.fontColor}><span>Grade </span><br/><span>{x.Grade}</span></div>
-								<div className='col s3 center' style={palette.fontColor}><span>Result </span><br/><span>{x.Result}</span></div>
-								<div className='col s3 center' style={palette.fontColor}><span>Year </span><br/><span>{x['Academic Year'].replace('AY','')}</span></div>
-							</div>
-							</div>
-						</div>
-						</div>
-					):<center><Loader
-					type="ThreeDots"
-					color="black"
-					height={50}
-					width={50}
-				  /></center>}
+						<GradeCard data={x} key={key} />
+					):<LoaderIcon />}
 					</div>
 				<BottomNav />
 				</div>
