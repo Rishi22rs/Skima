@@ -3,7 +3,9 @@ import { getSchedule } from '../Api/Api'
 import {cardColorTheme} from './ColorTheme'
 import BottomNav from './BottomNav'
 import nowork from '../Graphics/nowork.jpg'
+import TimetableCard from './UI/TimetableCard'
 import Nav from './Nav'
+import LoaderIcon from './UI/LoaderIcon'
 
 const Timetable = (match) => {
 
@@ -33,37 +35,6 @@ const Timetable = (match) => {
     const isActive = (dayOrder) => {
         return (localStorage.getItem('day') == dayOrder)?"active":""
     }
-
-    // const arrageTimetable=(scheduleRes)=>{
-    //     console.log(scheduleRes)
-    //     let timeIndex=0
-    //     let timetable=[]
-    //     for(let i=1;i<6;i++){
-    //         scheduleRes&&scheduleRes.Schedule[`Day ${i}`].map(s=>{
-    //             JSON.parse(localStorage.getItem('attendance'))[1].TimeTable.map(x=>{
-    //                 console.log("x",x)
-    //                 if(x.Slot!==undefined){
-    //                     let p1=0
-    //                     let p2=0
-    //                     if(s.split('to')[0]!=undefined&&s.split('to')[1]!=undefined){
-    //                         p1=parseInt(s.split('to')[0].replace("P",""))
-    //                         p2=parseInt(s.split('to')[1].replace("P",""))
-    //                     }
-    //                     if(s===x.Slot.split('-')[0]){
-    //                         timetable.push({...x,time:scheduleRes.Schedule['FROM'][timeIndex]})
-    //                     }else if(p1<=parseInt(x.Slot.split('-')[0].replace("P",""))&&p2>=parseInt(x.Slot.split('-')[0].replace("P",""))){
-    //                         timetable.push({...x,time:scheduleRes.Schedule['FROM'][timeIndex]})
-    //                     }
-    //                 }
-    //             })
-    //             timeIndex+=1
-    //         })
-    //         arrangedTimetable.push(timetable)
-    //         timetable=[]
-    //         timeIndex=0
-    //     }
-    //     localStorage.setItem('timetable',JSON.stringify(arrangedTimetable))
-    // }
 
     const arrageTimetable=(scheduleRes)=>{
         let timetable=[]
@@ -106,120 +77,37 @@ const Timetable = (match) => {
                 <div id="test-swipe-1" className="col s12">
                     {arrangedTimetable.length>0&&arrangedTimetable[0].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
-                        <div key={key}>
-                            <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
-                                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
-                                    <h5 className="center-align truncate">{x['Course Title']}</h5>  
-                                </div>
-                                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
-                                    <div className='row'>
-                                        <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time}</span></div>
-                                        <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
-                                        {/* <div className='col s4 center' style={palette.fontColor}><span></span><br/><span>{x['Room No.']}</span></div> */}
-                                        <div className='col s4 center' style={palette.fontColor}><span>GCR Code.</span><br/><span>{x['GCR Code']}</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <TimetableCard data={x} key={key} />
                     </div>)}
                 </div>
                 <div id="test2" className="col s12">
                     {arrangedTimetable.length>0&&arrangedTimetable[1].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
-                        <div key={key}>
-                            <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
-                                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
-                                    <h5 className="center-align truncate">{x['Course Title']}</h5>  
-                                </div>
-                                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
-                                    <div className='row'>
-                                        <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
-                                        <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
-                                        {/* <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div> */}
-                                        <div className='col s4 center' style={palette.fontColor}><span>GCR Code.</span><br/><span>{x['GCR Code']}</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <TimetableCard data={x} key={key} />
                     </div>)}
                 </div>
                 <div id="test3" className="col s12">
                     {arrangedTimetable.length>0&&arrangedTimetable[2].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
-                        <div key={key}>
-                            <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
-                                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
-                                    <h5 className="center-align truncate">{x['Course Title']}</h5>  
-                                </div>
-                                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
-                                    <div className='row'>
-                                        <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
-                                        <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
-                                        {/* <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div> */}
-                                        <div className='col s4 center' style={palette.fontColor}><span>GCR Code.</span><br/><span>{x['GCR Code']}</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <TimetableCard data={x} key={key} />
                     </div>)}
                 </div>
                 <div id="test4" className="col s12">
                     {arrangedTimetable.length>0&&arrangedTimetable[3].map((x,key)=>
                     <div className="row" style={{margin: 0}}>
-                        <div key={key}>
-                            <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
-                                <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
-                                    <h5 className="center-align truncate">{x['Course Title']}</h5>  
-                                </div>
-                                <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
-                                    <div className='row'>
-                                        <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
-                                        <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
-                                        {/* <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div> */}
-                                        <div className='col s4 center' style={palette.fontColor}><span>GCR Code.</span><br/><span>{x['GCR Code']}</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <TimetableCard data={x} key={key} />
                     </div>)}
                 </div>
                 <div id="test5" className="col s12">
                         {arrangedTimetable.length>0&&arrangedTimetable[4].map((x,key)=>
                         <div className="row" style={{margin: 0}}>
-                            <div key={key}>
-                                <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
-                                    <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
-                                        <h5 className="center-align truncate">{x['Course Title']}</h5>  
-                                    </div>
-                                    <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
-                                        <div className='row'>
-                                            <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
-                                            <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
-                                            <div className='col s4 center' style={palette.fontColor}><span>GCR Code.</span><br/><span>{x['GCR Code']}</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <TimetableCard data={x} key={key} />
                         </div>)}
                     </div>
-                    {/* <div id="test6" className="col s12">
+                {/* <div id="test6" className="col s12">
                         {arrangedTimetable.length>0&&arrangedTimetable[5].map((x,key)=>
                         <div className="row" style={{margin: 0}}>
-                            <div key={key}>
-                                <div className="card" style={Object.assign({}, palette.fontColor, palette.frontCard, palette.safest )}>
-                                    <div className="card-content" style={Object.assign({}, palette.fontColor, {padding: '1px 8px 4px 8px'})}>
-                                        <h5 className="center-align truncate">{x['Course Title']}</h5>  
-                                    </div>
-                                    <div className="card-action" style={Object.assign({}, palette.fontColor, {backgroundColor: 'rgba(0,0,0,0)'} )}>
-                                        <div className='row'>
-                                            <div className='col s4 center' style={palette.fontColor}><span>Time</span><br/><span>{x.time.trim()}</span></div>
-                                            <div className='col s4 center' style={palette.fontColor}><span>Slot</span><br/><span>{x.Slot}</span></div>
-                                            // <div className='col s4 center' style={palette.fontColor}><span>Room no.</span><br/><span>{x['Room No.']}</span></div>
-   
-   <div className='col s4 center' style={palette.fontColor}><span>GCR Code.</span><br/><span>{x['GCR Code']}</span></div>                                         </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <TimetableCard data={x} key={key} />
                         </div>)}
                     </div> */}
                 </div>

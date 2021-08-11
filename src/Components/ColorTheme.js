@@ -69,7 +69,7 @@ export const cardColorTheme = {
       color: "#F4EBC1"
     },
     fontColor: {
-      color: "#726A95"
+      color: "#F4EBC1"
     },
     danger: {
       backgroundColor: "#A0C1B8"

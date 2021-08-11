@@ -7,6 +7,7 @@ import { cardColorTheme } from './ColorTheme'
 import 'react-calendar/dist/Calendar.css';
 import Nav from './Nav'
 import BottomNav from './BottomNav'
+import LoaderIcon from './UI/LoaderIcon'
 
 const Planner = ( match )=> {
 
@@ -59,12 +60,7 @@ const Planner = ( match )=> {
                 {
                     tt.map((x,indexX)=>x.Events.map((y,index)=>y!=""?<h5 key={Math.random()}><b>{(indexX != c)?incC(indexX):''} {index+1} {months[indexX]}:</b> {y}</h5>:<></>))
                 }
-                </div>:<center><Loader
-              type="ThreeDots"
-              color="black"
-              height={50}
-              width={50}
-            /></center>}
+                </div>:<LoaderIcon />}
             </div>
         </div>
         <BottomNav/>
