@@ -18,7 +18,7 @@ const Planner = ( match )=> {
         }
         getPlanner()
     },[])
-    const months=[`Aug`,`Sep`,`Oct`]
+    const months=plannerData&&plannerData.map(x=>Object.keys(x)[0].split(' ')[0])
     let mark = []
     let tt=[]
     const arrangeTimetable=()=>{

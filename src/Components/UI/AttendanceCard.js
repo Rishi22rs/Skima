@@ -9,6 +9,8 @@ const AttendanceCard = ({ data }) => {
 
   const palette = cardColorTheme[localStorage.getItem("theme")];
 
+  const required=Math.ceil(Math.abs(3*data["Hours Conducted"]-4*(data["Hours Conducted"]-data["Hours Absent"])))  
+  const bunks=Math.floor(Math.abs(((4*(data["Hours Conducted"]-data["Hours Absent"]))/3)-data["Hours Conducted"]))
   return (
     <div
       className="card"
@@ -61,12 +63,10 @@ const AttendanceCard = ({ data }) => {
             <span>{data["Hours Absent"]}</span>
           </div>
           <div className="col s2 center" style={palette.fontColor}>
-            <span className="bold">Bunk</span>
+            <span className="bold">{data["%"]<75?"Required":"Bunk"}</span>
             <br />
             <span>
-              {parseInt(data["Hours Conducted"]) -
-                parseInt(data["Hours Absent"]) -
-                parseInt(data["Hours Conducted"]) * 0.75}
+              {data["%"]<75?required:bunks}
             </span>
           </div>
           <div className="col s2 center" style={palette.fontColor}>
